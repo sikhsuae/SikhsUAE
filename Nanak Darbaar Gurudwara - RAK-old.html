@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guru Nanak Darbar, Ras Al Khaimah</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: #FFA500; /* Kesari (orange-yellow) */
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: black;
+      text-align: center;
+    }
+    header img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+    h1 {
+      color: #FFA500;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .content {
+      padding: 20px 40px;
+      line-height: 1.7;
+      font-size: 25px;
+    }
+    .slideshow-container {
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+    .mySlides {
+      display: none;
+    }
+    .mySlides img {
+      width: 100%;
+      border: 3px solid #FFA500;
+    }
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    footer {
+      background-color: #111;
+      color: #FFA500;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+     .back-button-container {
+      max-width: 900px;
+      margin: 20px auto 0;
+      text-align: center;
+    }
+    .back-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+    }
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Photo -->
+  <header>
+    <img src="./pictures/Gurudwara Nanak Darbaar-RAK/Guru Nanak Darbar Ras Al Khaimah.jpeg" style="width:800px; height:auto";>
+  </header>
+
+  <!-- Main Title -->
+  <h1>Guru Nanak Darbar, Ras Al Khaimah</h1>
+
+  <!-- Content Section -->
+  <div class="content">
+    <p>
+      In the quiet corners of Ras Al Khaimah, surrounded by calm desert skies and rugged mountain views, the Guru Nanak Darbar Ras Al Khaimah quietly welcomes anyone in search of peace or perspective. It’s not flashy or loud — just a simple, soulful space built on the timeless values that Guru Nanak Dev Ji stood for: compassion, humility, and unity.
+    </p>
+    <p>
+      A sort of calm aura drifts in from the sky outside, settling down on you, putting you at peace with nature. The dominant silence is not one of emptiness – it is very much a comforting silence, one that makes you stop, take a deep breath, and just be in the moment. All around are people from diverse walks of life: Some praying silently, others helping with Langar (the community kitchen), while a few also sit in silence, drinking in the ambiance.
+    </p>
+    <p>
+      There is a sense of freedom, absence of pressure or formality. It was built with no pre-conditions, designed with the simplest intention of bringing people together.
+    </p>
+    <p>
+     Regardless of whether you’re there out of a spiritual vocation, or merely curious and in the mood for an inner retreat, the Guru Nanak Darbar has something real to offer. It’s that sort of atmosphere that quietly reminds you of what really counts — things like being humane, staying humble, and being present for others in small but rich ways.
+    </p>
+    
+  </div>
+
+  <!-- Slideshow Section -->
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="./pictures/Gurudwara Nanak Darbaar-RAK/Guru Nanak Darbar Ras Al Khaimah-1.jpeg" alt="Worship Ceremony">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="./pictures\Gurudwara Nanak Darbaar-RAK/Guru Nanak Darbar Ras Al Khaimah-2.jpg" alt="Worship Ceremony">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="./pictures\Gurudwara Nanak Darbaar-RAK/Guru Nanak Darbar Ras Al Khaimah-3.jpg" alt="Worship Ceremony">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="./pictures\Gurudwara Nanak Darbaar-RAK/Guru Nanak Darbar Ras Al Khaimah-4.jpg" alt="Worship Ceremony">
+    </div>
+
+  </div>
+
+  <!-- JavaScript for Slideshow -->
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+  </script>
+
+     <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" onclick="goBack()" title="Back">
+      <img src="./pictures/Back.png" alt="Back" style="height: 60px; width: auto;" />
+    </button>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "./GurudwarasinUAE.html";
+    }
+      </script>
+<footer>
+    <p><strong>Address:</strong> Al Jazeera Al Hamra Industrial - Ras Al Khaimah</p>
+    <p><strong>Phone:</strong>  052 481 6923</p>
+    <p>© 2025 Guru Nanak Darbar, Ras Al Khaimah. All rights reserved.</p>
+  </footer>
+</body>
+</html>
