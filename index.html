@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sikhs in UAE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #fcbf1e; /* Kesari color */
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* keep Khanda right */
+      flex-wrap: wrap;
+    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-header {
+  background-color: #fcbf1e;
+  padding: 0.5rem 5rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Force fixed width for outer khanda sides */
+.header-side.left,
+.header-side.right {
+  flex: 0 0 auto;
+  padding: 0 5rem;
+}
+
+/* Center area should take remaining space */
+.header-center {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Logo and text stack inside center */
+.header-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Keep images + text inline */
+.inline-logo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.in-text {
+  font-weight: normal;
+  margin: 0;
+}
+
+.header-group h1 {
+  font-size: 2rem;
+  margin: 5px 0;
+  color: #000;
+}
+
+.text-stack h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #000;
+}
+
+/* Independent sizes for header images */
+.logo-sikh {
+  height: 75px;
+}
+
+.logo-uae {
+  height: 75px;
+}
+
+.logo-khanda {
+  height: 75px;
+}
+
+.hero {
+  padding: 0.1rem 0.1rem;
+  text-align: center;
+  background-color: #000;
+}
+
+.ekonkar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem;
+  margin-bottom: 0rem;
+}
+
+.ekonkar-img {
+  height: 120px;
+}
+
+.ekonkar-text {
+  color: #fcbf1e;
+  font-size: 5rem;
+  margin: 0;
+}
+
+.hero h2 {
+  color: #fcbf1e;
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 1200px;
+  margin: 0.1rem auto;
+}
+
+.hero w {
+  font-color: #541011;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0.5rem auto;
+}
+
+.cta-button {
+  background-color: #fcbf1e;
+  color: #000;
+  padding: 0.5rem 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.quote-text {
+  color: #541011;
+  font-size: 1.2rem;
+  margin: 1rem auto;
+  max-width: 1700px;
+}
+
+.cta-button:hover {
+  background-color: #e0a600;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.clipart-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Independent sizes for clipart images */
+.golden-temple {
+  width: 160px;
+}
+
+.nihang-warrior {
+  width: 140px;
+}
+
+.guru-nanak {
+  width: 150px;
+}
+
+.clipart-row img {
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #fcbf1e;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #000000;
+  color: #FFA500;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid #FFA500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #FFA500;
+  color: #000000;
+  border-color: #000000;
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+
+      <!-- Left Khanda -->
+      <div class="header-side left">
+        <img src="./pictures/Khanda.png" alt="Khanda Symbol" class="logo-khanda" />
+      </div>
+
+      <!-- Center group with text and images -->
+      <div class="header-center">
+        <div class="header-group">
+          <div class="inline-logo-text">
+            <img src="./pictures/Sikh.png" alt="Sikh Symbol" class="logo-sikh" />
+            <h1>Sikhs</h1>
+          </div>
+          <h1 class="in-text">in</h1>
+          <div class="inline-logo-text">
+            <h1>UAE</h1>
+            <img src="./pictures/UAEMAP.png" alt="UAE Map" class="logo-uae" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Khanda -->
+      <div class="header-side right">
+        <img src="./pictures/Khanda.png" alt="Khanda Symbol" class="logo-khanda" />
+      </div>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="ekonkar-container">
+      <img src="./pictures/EK ONKAR Golden.png" alt="Ek Onkar Symbol" class="ekonkar-img">
+       <h2 class="ekonkar-text">IK ONKAR</h2>
+    </div>
+    <p>
+      One Universal Creator God. The Name Is Truth. Creative Being Personified.
+      <br>
+      No Fear. No Hatred. Image Of The Undying, Beyond Birth, Self-Existent. By Guru's Grace..
+    </p>
+  </section>
+
+  <section class="hero">
+    <h2>Preserving Heritage, Inspiring Future</h2>
+    <p>
+      A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
+    </p>
+    <a href="./Add Record.html" class="cta-button">Become a Member</a>
+
+    <div class="clipart-row">
+      <a href="./About Sikhism.html">
+        <img src="./pictures/About Sikhism.png" style="height: 100px; width: auto;" alt="About Sikhism" class="golden-temple">
+      </a>
+      <a href="./GurudwarasinUAE.html">
+        <img src="./pictures/GurudwarasinUAE.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <footer style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      background-color: #FFA500;
+      color: black;
+      flex-wrap: wrap;
+      font-weight: bold;
+    ">
+      <div style="flex: 1; text-align: left;">
+        <a href="./Contactus.html">
+          <img src="./pictures/Contact us.png" alt="Contact us" style="height: 60px; width: auto; background-color: black; border: 2px solid black; vertical-align: middle;">
+        </a>
+      </div>
+
+      <div style="flex: 1; text-align: center;">
+        <a href="./Feedback.html">
+          <img src="./pictures/Feedback.png" alt="Feedback Button" style="height: 60px; width: auto; vertical-align: middle;">
+        </a>
+      </div>
+
+      <div style="flex: 1; text-align: right;">
+        &copy; 2025 Sikhs in UAE. All Rights Reserved.
+      </div>
+    </footer>
+  </footer>
+
+</body>
+</html>

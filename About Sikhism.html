@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Sikhism</title>
+    <style>
+        body {
+            background-color: black;
+            color: #FFA500; /* Kesari (orange/yellow) */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #FFD700; /* Brighter kesari */
+        }
+        .button {
+            background-color: #FFA500;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            margin: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .button:hover {
+            background-color: #FF8C00; /* Darker orange */
+        }
+    .back-button-container {
+      max-width: 900px;
+      margin: 20px auto 0;
+      text-align: center;
+    }
+    .back-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+    }
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>About Sikhism</h1>
+    <p>Explore key aspects of Sikhism using the buttons below:</p>
+
+<button class="button" onclick="location.href='./Ten%20Gurus.html'">
+    <b>Sikh Gurus</b>
+</button>
+ <button class="button" onclick="location.href='./Sikhfestivals.html'">
+    <b>Sikh Festivals</b>
+</button>
+    <button class="button" onclick="location.href='./Sikh Holidays-2025.html'">
+   <b>Sikh Holidays-2025</b>
+</button>
+ <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" onclick="goBack()" title="Back">
+      <img src="./pictures/Back.png" style="height: 60px; width: auto;" alt="Back" />
+    </button>
+  </div>
+<script>
+function goBack() {
+    window.location.href = "./index.html"; // Case-sensitive on GitHub Pages
+  }
+    </script>
+</body>
+</html>

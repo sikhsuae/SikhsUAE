@@ -1,0 +1,690 @@
+Resolve conflict in index.html during rebase
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sikhs in UAE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #fcbf1e; /* Kesari color */
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* keep Khanda right */
+      flex-wrap: wrap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .main-header {
+      background-color: #fcbf1e;
+      padding: 0.5rem 5rem;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+
+    /* Force fixed width for outer khanda sides */
+    .header-side.left,
+    .header-side.right {
+      flex: 0 0 auto;
+      padding: 0 5rem;
+    }
+
+    /* Center area should take remaining space */
+    .header-center {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Logo and text stack inside center */
+    .header-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Keep images + text inline */
+    .inline-logo-text {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .in-text {
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .header-group h1 {
+      font-size: 2rem;
+      margin: 5px 0;
+      color: #000;
+    }
+
+    .text-stack h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #000;
+    }
+
+    /* Independent sizes for header images */
+    .logo-sikh {
+      height: 75px;
+    }
+
+    .logo-uae {
+      height: 75px;
+    }
+
+    .logo-khanda {
+      height: 75px;
+    }
+
+    .hero {
+      padding: 0.1rem 0.1rem;
+      text-align: center;
+      background-color: #000;
+    }
+
+    .ekonkar-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0rem;
+      margin-bottom: 0rem;
+    }
+
+    .ekonkar-img {
+      height: 120px;
+    }
+
+    .ekonkar-text {
+      color: #fcbf1e;
+      font-size: 5rem;
+      margin: 0;
+    }
+
+    .hero h2 {
+      color: #fcbf1e;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 1200px;
+      margin: 0.1rem auto;
+    }
+
+    .hero w {
+      font-color: #541011;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.5rem auto;
+    }
+
+    .cta-button {
+      background-color: #fcbf1e;
+      color: #000;
+      padding: 0.5rem 0.5rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .quote-text {
+      color: #541011;
+      font-size: 1.2rem;
+      margin: 1rem auto;
+      max-width: 1700px;
+    }
+
+    .cta-button:hover {
+      background-color: #e0a600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .clipart-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Independent sizes for clipart images */
+    .golden-temple {
+      width: 160px;
+    }
+
+    .nihang-warrior {
+      width: 140px;
+    }
+
+    .guru-nanak {
+      width: 150px;
+    }
+
+    .clipart-row img {
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #fcbf1e;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #000000;
+      color: #FFA500;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid #FFA500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: #FFA500;
+      color: #000000;
+      border-color: #000000;
+      text-decoration: none;
+    }
+
+    /* Mobile-friendly adjustments */
+
+    /* General styles for mobile */
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px; /* Reduce body text size */
+      }
+
+      header {
+        padding: 1rem;
+      }
+
+      /* Stack header content vertically */
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-side {
+        padding: 0;
+      }
+
+      /* Center area with text and images should align vertically on small screens */
+      .header-center {
+        margin-top: 1rem;
+      }
+
+      /* Adjust the hero section for mobile */
+      .hero {
+        padding: 1rem;
+      }
+
+      .ekonkar-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ekonkar-img {
+        height: 80px;
+      }
+
+      .ekonkar-text {
+        font-size: 3rem; /* Smaller font size for smaller screens */
+      }
+
+      /* Smaller font sizes in the hero section */
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem; /* Smaller paragraph font size */
+        max-width: 100%; /* Allow text to occupy full width */
+      }
+
+      .cta-button {
+        font-size: 1rem; /* Adjust button size */
+        padding: 10px 20px; /* Smaller padding */
+      }
+
+      /* Adjust the clipart images size */
+      .clipart-row img {
+        width: 100px; /* Smaller images */
+        height: auto;
+      }
+
+      /* Footer layout for smaller screens */
+      footer {
+        padding: 1rem;
+      }
+
+      footer .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer div {
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Adjustments for extra small screens (phones in portrait mode) */
+    @media (max-width: 480px) {
+      .hero p {
+        font-size: 0.9rem; /* Further reduce font size for very small screens */
+      }
+
+      .cta-button {
+        font-size: 0.9rem; /* Reduce button font size */
+        padding: 8px 16px; /* Make button smaller */
+      }
+
+      .ekonkar-text {
+        font-size: 2.5rem; /* Reduce font size further */
+      }
+
+      /* Adjust header font size and layout */
+      .header-group h1 {
+        font-size: 1.5rem; /* Smaller font size */
+      }
+
+      .logo-sikh,
+      .logo-uae,
+      .logo-khanda {
+        height: 50px; /* Smaller images for mobile screens */
+      }
+
+      /* Adjust spacing and layout for footer icons */
+      footer img {
+        height: 40px; /* Reduce icon size */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+
+      <!-- Left Khanda -->
+      <div class="header-side left">
+        <img src="./pictures/Khanda.png" alt="Khanda Symbol" class="logo-khanda" />
+      </div>
+
+      <!-- Center group with text and images -->
+      <div class="header-center">
+        <div class="header-group">
+          <div class="inline-logo-text">
+            <img src="./pictures/Sikh.png" alt="Sikh Symbol" class="logo-sikh" />
+            <h1>Sikhs</h1>
+          </div>
+          <h1 class="in-text">in</h1>
+          <div class="inline-logo-text">
+            <h1>UAE</h1>
+            <img src="./pictures/UAEMAP.png" alt="UAE Map" class="logo-uae" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Khanda -->
+      <div class="header-side right">
+        <img src="./pictures/Khanda.png" alt="Khanda Symbol" class="logo-khanda" />
+      </div>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="ekonkar-container">
+      <img src="./pictures/EK ONKAR Golden.png" alt="Ek Onkar Symbol" class="ekonkar-img">
+       <h2 class="ekonkar-text">IK ONKAR</h2>
+    </div>
+    <p>
+      One Universal Creator God. The Name Is Truth. Creative Being Personified.
+      <br>
+      No Fear. No Hatred. Image Of The Undying, Beyond Birth, Self-Existent. By Guru's Grace..
+    </p>
+  </section>
+
+  <section class="hero">
+    <h2>Preserving Heritage, Inspiring Future</h2>
+    <p>
+      A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
+    </p>
+    <a href="./Add Record.html" class="cta-button">Become a Member</a>
+
+    <div class="clipart-row">
+      <a href="./About Sikhism.html">
+        <img src="./pictures/About Sikhism.png" style="height: 100px; width: auto;" alt="About Sikhism" class="golden-temple">
+      </a>
+      <a href="./GurudwarasinUAE.html">
+        <img src="./pictures/GurudwarasinUAE.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <footer style="display: flex; justify-content: space-between; align-items: center; padding: 5px; background-color: #FFA500; color: black; flex-wrap: wrap; font-weight: bold;">
+      <div style="flex: 1; text-align: left;">
+        <a href="./Contactus.html">
+          <img src="./pictures/Contact us.png" alt="Contact us" style="height: 60px; width: auto; background-color: black; border: 2px solid black; vertical-align: middle;">
+        </a>
+      </div>
+
+      <div style="flex: 1; text-align: center;">
+        <a href="./Feedback.html">
+          <img src="./pictures/Feedback.png" alt="Feedback Button" style="height: 60px; width: auto; vertical-align: middle;">
+        </a>
+      </div>
+
+      <div style="flex: 1; text-align: right;">
+        &copy; 2025 Sikhs in UAE. All Rights Reserved.
+      </div>
+    </footer>
+  </footer>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Today's Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #5a0404;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #loadingSpinner {
+            display: none;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modify Table</h1>
+
+
+        <div id="loadingSpinner">Loading...</div>
+        <div class="message" id="messageArea"></div>
+  
+        <button onclick="AddEventsButton()">Add Event</button>
+        <br>
+        <button onclick="ModifytableButton()">Modify Table Fields</button>
+        <br>
+        <button onclick="ListData()">List Data</button>
+        <br>
+        <br>
+        <button onclick="SikhsinUAE()">Sikhs in UAE</button>
+        <br>
+    </div>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script>
+    function AddEventsButton() {
+        window.open('Event-Edit-Final.html'); // This opens a new HTML page
+        // or use: window.location.href = 'new_page.html'; // This redirects to the new page
+         }
+         function ModifytableButton() {
+        window.open('Event-Table-Edit_1.html'); // This opens a new HTML page
+        // or use: window.location.href = 'new_page.html'; // This redirects to the new page
+         }
+         function ListData() {
+        window.open('Event-List.html'); // This opens a new HTML page
+        // or use: window.location.href = 'new_page.html'; // This redirects to the new page
+         }
+          function SikhsinUAE() {
+        window.open('SikhsinUAE.html'); // This opens a new HTML page
+        // or use: window.location.href = 'new_page.html'; // This redirects to the new page
+         }
+        function SendEmail() {
+        window.open('sendEmails.js'); // This opens a new HTML page
+        // or use: window.location.href = 'new_page.html'; // This redirects to the new page
+         }
+                  </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCfbqC-893YBqhgR5OR0eHyX-EXzCIoTC8",
+            authDomain: "jwdatabase-f0e20.firebaseapp.com",
+            databaseURL: "https://jwdatabase-f0e20-default-rtdb.firebaseio.com",
+            projectId: "jwdatabase-f0e20",
+            storageBucket: "jwdatabase-f0e20.appspot.com",
+            messagingSenderId: "1335908909",
+            appId: "1:1335908909:web:0c132d7c79008c490c36a4",
+            measurementId: "G-BQG1N754TN"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date();
+        const todayMonth = today.getMonth() + 1;  // Months are 0-indexed (January = 0)
+        const todayDate = today.getDate();
+        const todayFormatted = `${today.getFullYear()}-${todayMonth < 10 ? '0' : ''}${todayMonth}-${todayDate < 10 ? '0' : ''}${todayDate}`;
+
+        // Function to check for today's events and send individual emails
+        async function checkAndSendEmails() {
+            try {
+                // Show loading spinner while processing
+                document.getElementById('loadingSpinner').style.display = 'block';
+                document.getElementById('messageArea').textContent = ''; // Clear previous messages
+
+                // Get the "Event" collection from Firestore
+                const eventCollection = collection(db, "Event");
+                const querySnapshot = await getDocs(eventCollection);
+
+                if (querySnapshot.empty) {
+                    console.log("No documents found.");
+                    document.getElementById('messageArea').innerHTML = "No events in the database.";
+                    document.getElementById('loadingSpinner').style.display = 'none';
+                    return;
+                }
+
+                let eventsFound = false;
+
+                // Loop through documents and check if any event matches today's date
+                querySnapshot.forEach((docSnapshot) => {
+                    const eventData = docSnapshot.data();
+                    const occasion = eventData.Occasion;
+                    const eventName = eventData.To_Name;
+                    const eventGName = eventData.To_Gname;
+                    const eventEmail = eventData.To_Email;
+
+                    const eventDate = eventData.Date;  // Event date stored as string in YYYY-MM-DD format
+                    if (eventDate === todayFormatted) {
+                        eventsFound = true;
+                        let customMessage = "";
+                        let customsubject = "";
+                        const eventDateObj = new Date(todayFormatted);
+                        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                        const todayFormatted1 = eventDateObj.toLocaleDateString('en-GB', options);
+
+                        if (occasion === "Birthday") {
+                            customsubject = `Happy Birthday! - ${eventName}  [${todayFormatted1}] 🎉`;  // Customize the subject for birthday
+                            customMessage = `Happy birthday, I hope all your birthday wishes and dreams come true.`;
+                            //SELECT Bmessage FROM TableB ORDER BY RAND() LIMIT 1;
+                        } else if (occasion === "Anniversary") {
+                            customsubject = `Happy Anniversary! - ${eventName} [${todayFormatted1}] 🎉`;  // Customize the subject for anniversary
+                            customMessage = `Congratulations on another year spent together. Wishing you the most love, laughter, and happiness for years to come.`;
+                        } else {
+                            customMessage = `${eventName}'s event: ${occasion}`;
+                        }
+
+                        // Send an individual email for this event
+                        sendEmail(eventEmail, customMessage, customsubject, eventGName);  // Send email with event details
+                    }
+                });
+
+
+
+
+
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
+}
+
+                    async function sendEmail(toEmail, message, subject, fromname, toname, fileName) {
+                    try {
+                            console.log("ID ", EMAILJS_USER_ID);
+                            console.log("Sending email to ", toEmail);
+
+                            emailjs.init(EMAILJS_USER_ID);
+
+                            const response = await emailjs.send(
+                            EMAILJS_SERVICE_ID,
+                            EMAILJS_TEMPLATE_ID,
+                        {
+                                message,
+                                subject,
+                                from_name: fromname,
+                                to_name: toname,
+                                from_email: "tpsarora@gmail.com", // Hardcoded sender's email
+                                email: toEmail, // Send to the recipient email
+                                link: `https://taviarora.github.io/eventmarch2025/Birthdays/${fileName}`,
+                        },
+                        {
+                                publicKey: EMAILJS_USER_ID,
+                                privateKey: process.env.EMAILJS_PRIVATE_KEY,
+                        }
+                        );
+
+                                console.log("Email sent successfully:", response);
+                                } catch (error) 
+                                {
+                                console.error("Error sending email:", error);
+                                }
+                                }
+
+                                sendEmails();
+
+                        });
+
+                // If no events were found for today
+                if (!eventsFound) {
+                    document.getElementById('messageArea').innerHTML = `No events for today.<br>Today's Date: ${todayFormatted}`;
+                }
+
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide spinner after processing
+
+            } catch (error) {
+                console.error("Error checking events:", error);
+                document.getElementById('messageArea').textContent = 'Error checking events. Please try again later.';
+                document.getElementById('messageArea').style.color = 'red';
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide spinner
+            }
+        }
+
+        // Function to send an email using EmailJS
+        function sendEmail(recipientEmail, eventsMessage, eventsSubject, eventsGName) {
+            const emailMessage = `${eventsMessage}`;
+            const emailSubject = `${eventsSubject}`;
+            const emailName = `${eventsGName}`;
+
+            emailjs.send("service_jitwsrj", "template_m0u22pm", {
+                from_name: "Tavinder Arora",
+                to_name: emailName,
+                from_email: "tpsarora@gmail.com",  // Hardcoded sender's email
+                email: recipientEmail, // Send to the recipient email
+                subject: emailSubject,
+                message: emailMessage, // Correctly pass the email content
+                link: "https://www.jagjitwelfare.com/Birthdays/image.png"
+            }).then(function(response) {
+                console.log('Success:', response);
+                document.getElementById('messageArea').textContent = 'Email sent successfully!';
+                document.getElementById('messageArea').style.color = 'green';
+            }, function(error) {
+                console.error('Error:', error);
+                document.getElementById('messageArea').textContent = 'Failed to send email.';
+                document.getElementById('messageArea').style.color = 'red';
+            });
+        }
+
+        // Attach click event listener to button
+        document.getElementById('checkEventsButton').addEventListener('click', checkAndSendEmails);
+        document.getElementById('SendEmail').addEventListener('click', checkAndSendEmails1);
+        // Initialize EmailJS with your user ID
+        emailjs.init("qcbXaXrWGMaIRt6_o");  // Replace with your actual EmailJS user ID
+        
+        
+        
+    </script>
+</body>
+</html>

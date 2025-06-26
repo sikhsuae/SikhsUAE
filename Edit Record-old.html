@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Firebase Data by Email - SikhsinUAE</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <h1>Edit User Data by Email (Firestore)</h1>
+
+  <form id="editForm">
+    <input type="email" id="searchEmail" placeholder="Enter Email to Load" required>
+    <button type="button" onclick="loadData()">Load Data</button><br><br>
+
+    <input type="text" id="name" placeholder="Name"><br><br>
+    <input type="password" id="password" placeholder="Password"><br><br>
+    <input type="number" id="mobile" placeholder="Mobile"><br><br>
+    <input type="number" id="age" placeholder="Age"><br><br>
+    <input type="text" id="address" placeholder="Address"><br><br>
+    <input type="text" id="gender" placeholder="Gender"><br><br>
+    
+    <button type="submit">Update Data</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyD16ie2mmA_t-870B79kz96p1Z7IIxkwcQ",
+      authDomain: "sihksinuae.firebaseapp.com",
+      projectId: "sihksinuae",
+      storageBucket: "sihksinuae.appspot.com",
+      messagingSenderId: "119237159141",
+      appId: "1:119237159141:web:39acb9510020a8a7808c0c",
+      measurementId: "G-RNXNN6TCB0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    let currentDocId = null;
+
+    function loadData() {
+      const email = document.getElementById("searchEmail").value;
+      if (!email) return alert("Please enter an email address.");
+
+      db.collection("sikhdatabaseuae")
+        .where("Email", "==", email)
+        .limit(1)
+        .get()
+        .then((querySnapshot) => {
+          if (querySnapshot.empty) {
+            document.getElementById("status").innerText = "No user found with this email.";
+            return;
+          }
+
+          const doc = querySnapshot.docs[0];
+          currentDocId = doc.id; // Save doc ID for updating
+          const data = doc.data();
+
+          // Fill form with existing data
+          document.getElementById("name").value = data.Name || "";
+          document.getElementById("password").value = data.Password || "";
+          document.getElementById("mobile").value = data.Mobile || "";
+          document.getElementById("age").value = data.Age || "";
+          document.getElementById("address").value = data.Address || "";
+          document.getElementById("gender").value = data.Gender || "";
+          document.getElementById("status").innerText = "Data loaded. You can now edit and update.";
+        })
+        .catch((error) => {
+          console.error("Error loading data: ", error);
+          document.getElementById("status").innerText = "Error loading data.";
+        });
+    }
+
+    document.getElementById("editForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!currentDocId) {
+        alert("Please load data by email before updating.");
+        return;
+      }
+
+      db.collection("sikhdatabaseuae").doc(currentDocId).update({
+        Name: document.getElementById("name").value,
+        Password: document.getElementById("password").value,
+        Mobile: Number(document.getElementById("mobile").value),
+        Age: Number(document.getElementById("age").value),
+        Address: document.getElementById("address").value,
+        Gender: document.getElementById("gender").value
+      }).then(() => {
+        document.getElementById("status").innerText = "Data updated successfully!";
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+        document.getElementById("status").innerText = "Error updating data.";
+      });
+    });
+  </script>
+</body>
+</html>

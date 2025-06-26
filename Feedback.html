@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="commonstyles.css">
+  <style>
+    :root {
+      --primary-color: #FFA500; /* Kesari (Orange) */
+      --text-color: #000000;    /* Black */
+      --hover-bg-color: #000000;
+      --hover-text-color: #FFA500;
+      --input-border: #FFA500;
+    }
+
+    body {
+      background-color: #fffdf5;
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    .center-text {
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    nav.nav {
+      background-color: var(--primary-color);
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    nav.nav a {
+      color: var(--text-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav.nav a:hover {
+      color: var(--hover-text-color);
+    }
+
+    .contact_container {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .contact_container {
+        flex-direction: row;
+      }
+    }
+
+    .contact_container > * {
+      flex-grow: 1;
+      flex-basis: 0;
+      min-width: 0;
+      margin: 0 10px;
+    }
+
+    .quotes {
+      font-weight: bold;
+      font-size: larger;
+      padding: 1px;
+      margin: 5px;
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    .contact-image {
+      display: flex;
+      margin-top: 20px;
+      flex-direction: column;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .responsive-image {
+      width: 100%;
+      height: auto;
+      max-width: 600px;
+      object-fit: contain;
+    }
+
+    .contact-form {
+      width: 100%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 30px;
+      padding-bottom: 50px;
+    }
+
+    input,
+    button,
+    textarea {
+      margin-top: 5px;
+      margin-bottom: 35px;
+      padding: 8px;
+      width: 100%;
+      border: 2px solid var(--input-border);
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: white;
+      color: var(--text-color);
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: larger;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: 2px solid var(--text-color);
+      padding: 8px 16px;
+      transition: 0.4s;
+      width: 100%;
+    }
+
+    button:hover:enabled {
+      background-color: var(--hover-bg-color);
+      color: var(--hover-text-color);
+      border-color: var(--hover-bg-color);
+    }
+
+    @media (max-width: 600px) {
+      .contact_container {
+        margin: 20px;
+      }
+
+      form {
+        max-width: 90%;
+      }
+
+      button {
+        font-size: medium;
+      }
+    }
+     .back-button-container {
+      max-width: 900px;
+      margin: 40px auto 0;
+      text-align: center;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+    }
+
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+   <div class="contact_container">
+    <div class="contact-image">
+      <img src="./pictures/Your-Feedback-Matters.png" class="responsive-image" alt="Your Feedback Matters">
+      <div class="quotes">
+        "Strive for continuous improvement, instead of perfection."
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2 class="center-text">Please share your Feedback</h2>
+      <form class="contact" id="feedbackForm">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="contact@example.com">
+        </div>
+
+        <div>
+          <label for="mobile">Mobile Number</label>
+          <input type="text" id="mobile" name="mobile" placeholder="mobile" required>
+        </div>
+
+        <div>
+          <label for="feedback">Your Feedback</label>
+          <textarea id="feedback" name="feedback" maxlength="256" required></textarea>
+        </div>
+
+        <input id="honeypot" class="hidden" type="text" />
+
+        <button type="button" onclick="submitForm()">Submit</button>
+
+        <div id="status" class="center-text"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      var honeypot = document.getElementById("honeypot").value;
+      if (honeypot) {
+        return; // Bot detected
+      }
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var mobile = document.getElementById("mobile").value;
+      var feedback = document.getElementById("feedback").value;
+
+      var url = "https://script.google.com/macros/s/AKfycbxLQd4XpMkW9-hnLuUA3FhizXKG2bBrAs_Mboggpxaflz_AJ_MmLgzG-CFqEUq8lp2CNg/exec";
+
+      var formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('mobile', mobile);
+      formData.append('feedback', feedback);
+
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(response => {
+        document.getElementById("status").innerHTML = "Feedback submitted!";
+        document.getElementById("feedbackForm").reset();
+      }).catch(error => {
+        document.getElementById("status").innerHTML = "Error submitting feedback!";
+      });
+    }
+  </script>
+    <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" onclick="goBack()" title="Back">
+      <img src="./pictures/Back.png" alt="Back" style="height: 60px; width: auto;" />
+    </button>
+  </div>
+
+  <script>
+<<<<<<< HEAD
+    // hello
+    function goBack() {
+    window.location.href = "./index.html"; // Case-sensitive on GitHub Pages
+  }
+=======
+    function goBack() {
+      window.location.href = "Index.html";
+    }
+>>>>>>> 61de59782fb73c0d6576b47f8e7b824d56422625
+  </script>
+</body>
+</html>
