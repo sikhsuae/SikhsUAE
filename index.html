@@ -13,50 +13,14 @@
     }
 
     header {
-      background-color: #fcbf1e;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .main-header {
-      background-color: #fcbf1e;
-      padding: 0.5rem 5rem;
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; /* changed from nowrap to wrap */
-      width: 100%;
-    }
-
-    .header-side.left,
-    .header-side.right {
-      flex: 0 0 auto;
-      padding: 0 2rem;
-    }
-
-    .header-center {
-      flex: 1 1 auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .header-group {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+            width: 100%;
+            background-color:  #fcbf1e;
+            text-align: center;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
 
     .inline-logo-text {
       display: flex;
@@ -314,14 +278,10 @@
   </style>
 </head>
 <body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <div class="header-side left">
-        <img src="./pictures/Header.jpg" style="height: 125px; width: auto;" alt="Khanda Symbol" class="logo-khanda" />
-      </div>
-    </div>
-  </header>
+<header>
+   
+        <img src="Header.jpg" alt="Header Image" width="1032" height="139" />
+    </header>
 
   <section class="hero">
     <div class="ekonkar-container">
