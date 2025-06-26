@@ -84,7 +84,7 @@
       display: flex;
       margin-top: 20px;
       flex-direction: column;
-      gap: 50px;
+      gap: 10px;
       align-items: center;
     }
 
@@ -104,14 +104,14 @@
       flex-direction: column;
       width: 80%;
       margin-top: 30px;
-      padding-bottom: 50px;
+      padding-bottom: 10px;
     }
 
     input,
     button,
     textarea {
       margin-top: 5px;
-      margin-bottom: 35px;
+      margin-bottom: 5px;
       padding: 8px;
       width: 100%;
       border: 2px solid var(--input-border);
@@ -152,18 +152,23 @@
         font-size: medium;
       }
     }
-     .back-button-container {
-      max-width: 900px;
-      margin: 40px auto 0;
+     /* Back Button Container */
+    .back-button-container {
+      max-width: 100px;
+      margin: 5px auto;
       text-align: center;
+      margin-bottom: 10px;
     }
 
     .back-button {
+      display: flex;
+      justify-content: center; /* centers horizontally */
+      align-items: center;     /* centers vertically if there's height */
       background: none;
       border: none;
       cursor: pointer;
       outline: none;
-      padding: 0;
+      padding: 10px;
     }
 
     .back-button img {
@@ -171,6 +176,8 @@
       height: 40px;
       object-fit: contain;
       vertical-align: middle;
+
+      padding: 10px;
     }
   </style>
 </head>
@@ -251,21 +258,15 @@
     <!-- Back Button -->
   <div class="back-button-container">
     <button class="back-button" onclick="goBack()" title="Back">
-      <img src="./pictures/Back.png" alt="Back" style="height: 60px; width: auto;" />
+      <img src="./pictures/Back.png" alt="Back" style="height: 50px; width: auto;" />
     </button>
   </div>
 
   <script>
-<<<<<<< HEAD
     // hello
     function goBack() {
     window.location.href = "./index.html"; // Case-sensitive on GitHub Pages
   }
-=======
-    function goBack() {
-      window.location.href = "Index.html";
-    }
->>>>>>> 61de59782fb73c0d6576b47f8e7b824d56422625
   </script>
 </body>
 </html>
