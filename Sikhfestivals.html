@@ -50,27 +50,7 @@
       font-size: 1em;
     }
 
-    .back-button-container {
-      max-width: 900px;
-      margin: 20px auto 0;
-      text-align: center;
-    }
-
-    .back-button {
-      background: #FF7F00; /* Orange/Kesari button */
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: black; /* Black text in button */
-      font-size: 1em;
-    }
-
-    .back-button:hover {
-      background: #FF7F00 ; /* Lighter yellow on hover */
-    }
-
+   
     .back-button img {
       width: 40px;
       height: 40px;
@@ -127,12 +107,12 @@
   </section>
 
   <!-- Back Button -->
-  <div class="back-button-container">
-    <button class="back-button" onclick="goBack()" title="Back">
-      <img src="./pictures/Back.png" style="height: 50px; width: auto;" alt="Back" />
-    </button>
-  </div>
-
+<button 
+  type="button" 
+  onclick="goBack()" 
+  style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+  Back
+</button>
 <script>
     function goBack() {
      window.location.href = "./About Sikhism.html";

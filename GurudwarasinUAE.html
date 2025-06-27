@@ -71,26 +71,7 @@
       border-color: #000000;
     }
 
-    .back-button-container {
-      max-width: 900px;
-      margin: 40px auto 0;
-      text-align: center;
-    }
-
-    .back-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 0;
-    }
-
-    .back-button img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
+    
   </style>
 </head>
 
@@ -100,7 +81,7 @@
   <div class="card-container">
     <div class="card">
       <img src="./pictures/Gurudwara Nanak Darbaar/GURU NANAK Darbaar.jpg" alt="Gurudwara in Dubai" />
-      <h3>Nanak Darbaar Gurudwara - Dubai</h3>
+      <h3>Nanak Darbaar Gurudwara Sahib Ji - Dubai</h3>
 <button onclick="location.href='./Nanak%20Darbaar%20Gurudwara.html'">
     Visit Page
 </button>
@@ -108,7 +89,7 @@
 
     <div class="card">
       <img src="./pictures/Gurudwara Nanak Darbaar-RAK\Guru Nanak Darbar Ras Al Khaimah.jpeg" alt="Gurudwara in RAK" alt="Gurudwara in RAK" />
-      <h3>Russell Khaimah Gurudwara</h3>
+      <h3>Russell Khaimah Gurudwara Sahib Ji </h3>
 <button onclick="location.href='./Nanak%20Darbaar%20Gurudwara%20-%20RAK.html'">
   Visit Page
 </button>
@@ -116,11 +97,12 @@
   </div>
 
   <!-- Back Button -->
-  <div class="back-button-container">
-    <button class="back-button" onclick="goBack()" title="Back">
-      <img src="./pictures/Back.png" alt="Back" style="height: 50px; width: auto;" />
-    </button>
-  </div>
+<button 
+  type="button" 
+  onclick="goBack()" 
+  style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+  Back
+</button>
 
   <script>
     function goBack() {

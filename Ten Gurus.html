@@ -73,24 +73,7 @@
             margin-top: 15px;
         }
     }
-    .back-button-container {
-      max-width: 900px;
-      margin: 20px auto 0;
-      text-align: center;
-    }
-    .back-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 0;
-    }
-    .back-button img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
+   
 </style>
 </head>
 <body>
@@ -287,11 +270,12 @@ The greatness of the Guru Granth Sahib lies not only in its being the Holy Scrip
     </div>
     </div>
 <!-- Back Button -->
-  <div class="back-button-container">
-    <button class="back-button" onclick="goBack()" title="Back">
-      <img src=".\pictures\Back.png" style="height: 60px; width: auto; alt="Back" />
-    </button>
-  </div>
+<button 
+  type="button" 
+  onclick="goBack()" 
+  style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+  Back
+</button>
 <script>
     function goBack() 
    {

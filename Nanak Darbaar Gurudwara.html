@@ -114,29 +114,7 @@
       flex-shrink: 0; /* Prevent footer from shrinking */
     }
 
-    /* Back Button Container */
-    .back-button-container {
-      max-width: 100px;
-      margin: 5px auto;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .back-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 10px;
-    }
-
-    .back-button img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      vertical-align: middle;
-      padding: 10px;
-    }
+    
 
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
@@ -260,11 +238,12 @@
     <p>  © 2025 Guru Nanak Darbar, Dubai. All rights reserved.</p>
     <br>
     <!-- Back Button -->
-    <div class="back-button-container">
-      <button class="back-button" onclick="goBack()" title="Back">
-        <img src="./pictures/Back.png" alt="Back" style="height: 60px; width: auto;" />
-      </button>
-    </div>
+     <button 
+  type="button" 
+  onclick="goBack()" 
+  style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+  Back
+</button>
 
     <script>
       function goBack() {
