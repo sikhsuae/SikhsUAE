@@ -27,24 +27,7 @@
         .button:hover {
             background-color: #FF8C00; /* Darker orange */
         }
-    .back-button-container {
-      max-width: 900px;
-      margin: 20px auto 0;
-      text-align: center;
-    }
-    .back-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 0;
-    }
-    .back-button img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
+   
     </style>
 </head>
 <body>
@@ -62,11 +45,10 @@
    <b>Sikh Holidays-2025</b>
 </button>
  <!-- Back Button -->
-  <div class="back-button-container">
-    <button class="back-button" onclick="goBack()" title="Back">
-      <img src="./pictures/Back.png" style="height: 50px; width: auto;" alt="Back" />
-    </button>
+    <div style="margin-top: 25px; text-align: center;">
+<button type="button" onclick="goBack()" style="width: 150px; height: 40px; font-size:24px; background-color: #FFA500; color: black;"><b>Back</b></button>
   </div>
+
 <script>
 function goBack() {
     window.location.href = "./index.html"; // Case-sensitive on GitHub Pages

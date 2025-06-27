@@ -1,362 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Sikhs in UAE – Membership Form</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  <style>
-    body {
-      background-color: #1a1a1a;
-      color: #fbbf24;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 30px;
-    }
-    h1, h2 {
-      color: #fb923c;
-      margin-bottom: 20px;
-    }
-    h1 {
-      text-align: center;
-    }
-    h2 {
-      text-align: center;
-      margin-left: 10px;
-    }
-    .intro {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      background: #000;
-      color: #fbbf24;
-      font-size: 16px;
-      line-height: 1.6;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #fb923c99;
-    }
-    form {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #000000;
-      padding: 25px 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #fb923c99;
-    }
-    .form-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    label {
-      width: 150px;
-      font-weight: 600;
-      color: #fb923c;
-      user-select: none;
-    }
-    input, select {
-      flex: 1;
-      padding: 8px 10px;
-      font-size: 15px;
-      border: 2px solid #fb923c;
-      border-radius: 5px;
-      background-color: #1a1a1a;
-      color: #fbbf24;
-    }
-    input::placeholder {
-      color: #fbbf2477;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border-color: #f97316;
-      background-color: #000;
-      color: #fff;
-    }
-    button {
-      padding: 10px 16px;
-      font-size: 15px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      margin-right: 12px;
-      font-weight: 600;
-      box-shadow: 0 3px 8px #fb923caa;
-      color: #1a1a1a;
-      background-color: #fb923c;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #f97316;
-      color: #fff;
-      box-shadow: 0 5px 15px #f9731699;
-    }
-    #status {
-      margin-top: 20px;
-      font-weight: 600;
-      text-align: center;
-      color: #fb923c;
-    }
-    .footnote {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #fbbf24;
-      line-height: 1.6;
-      background-color: #1a1a1a;
-      padding: 15px;
-      border-left: 4px solid #fb923c;
-      border-radius: 6px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .back-button-container {
-      max-width: 900px;
-      margin: 20px auto 0;
-      text-align: center;
-    }
-    .back-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 0;
-    }
-    .back-button img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="intro">
-    <p><strong>Benefits of becoming a member</strong></p>
-    <p>It's free to join: Membership doesn’t cost anything and is open to everyone, not just Sikhs. You just have to give us your Name and Email Address to join.</p>
-    <p>Expand your network: Most of our events have allocated networking time. It’s a great opportunity to meet people in your industry as well as others.</p>
-    <p>Be inspired and keep learning: As Sikhs we are all continual learners in life and attending our inspiring events you can learn from people from a range of backgrounds to help you excel in your own life.</p>
-  </div>
-
-  <h2>Register to Become a Member of “Sikhs in UAE” Group</h2>
-
-  <form id="editForm">
-    <div class="form-row">
-      <label for="email">Email: <span style="color: #f00;">*</span> (mandatory)</label>
-      <input type="email" id="email" placeholder="Email (used as ID)" required />
-    </div>
-
-    <div class="form-row">
-      <label for="name">Name: <span style="color: #f00;">*</span> (mandatory)</label>
-      <input type="text" id="name" placeholder="Your Full Name" />
-    </div>
-
-    <div class="form-row">
-      <label for="password">Password: <span style="color: #f00;">*</span> (mandatory)</label>
-      <input type="password" id="password" placeholder="Choose a password" />
-    </div>
-
-    <div class="form-row">
-      <label for="mobile">Mobile: <span style="color: #f00;">*</span> (mandatory)</label>
-      <input type="number" id="mobile" placeholder="Mobile number (9 digits or more)" />
-    </div>
-
-    <div class="form-row">
-      <label for="age">Age:</label>
-      <input type="number" id="age" placeholder="Your age" />
-    </div>
-
-    <div class="form-row">
-      <label for="address">Address:</label>
-      <input type="text" id="address" placeholder="Your address" maxlength="150" />
-    </div>
-
-    <div class="form-row">
-      <label for="gender">Gender:</label>
-      <select id="gender">
-        <option value="">-- Select Gender --</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </div>
-
-    <div style="margin-top: 25px; text-align: center;">
-      <button type="button" onclick="loadData()">Load Existing Data</button>
-      <!-- <button type="submit">Add / Update Data</button> -->
-      <button type="button" onclick="resetForm()">Clear Form</button>
-    </div>
-
-    <p id="status"></p>
-
-    <div class="footnote">
-      <strong>Footnote:</strong><br />
-      Once you’ve submitted the above form you’ll need to click the confirm link we will email you. Check your junk mail or spam folder in case it ends up there.<br /><br />
-      * Some company firewalls can block emails being received, so we recommend using your personal one to make sure you don’t miss out.
-     <p>If you face any issues, please contact <a href="mailto:sikhsuae@gmail.com" style="color: #fb923c;">sikhsuae@gmail.com</a>.</p>
-    </div>
-  </form>
-
- <!-- Back Button -->
-  <div class="back-button-container">
-    <button class="back-button" onclick="goBack()" title="Back">
-      <img src="./pictures/Back.png" style="height: 50px; width: auto; alt="Back" />
-    </button>
-  </div>
-
-  <script>
-  const firebaseConfig = {
-  apiKey: "AIzaSyBGhLdEcfLYzZAWAA_je63DHnazpHHZZpQ",
-  authDomain: "sihksinuae.firebaseapp.com",
-  projectId: "sihksinuae",
-  storageBucket: "sihksinuae.firebasestorage.app",
-  messagingSenderId: "119237159141",
-  appId: "1:119237159141:web:39acb9510020a8a7808c0c",
-  measurementId: "G-RNXNN6TCB0"
-};
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    function loadData() {
-      const email = document.getElementById("email").value.trim();
-      if (!email) return alert("Please enter an email.");
-
-      db.collection("sikhdatabaseuae").doc(email).get()
-        .then(doc => {
-          if (!doc.exists) {
-            document.getElementById("status").innerText = "No user found with this email.";
-            clearForm(false);
-            return;
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sikhs in UAE – Membership Form</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #fbbf24;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 30px;
+      }
+      h1, h2, h3 {
+        color: #fb923c;
+          padding-top: 0.1em;
+        padding-bottom: 0.1em;
+            }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      h3 {
+            text-align: center;
           }
+      .intro {
+        max-width: 900px;
+        margin: 0 auto 30px;
+        background: #000;
+        color: #fbbf24;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 12px #fb923c99;
+      }
+      form {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #000000;
+        padding: 25px 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 12px #fb923c99;
+      }
+      .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+      label {
+        width: 150px;
+        font-weight: 600;
+        color: #fb923c;
+        user-select: none;
+      }
+    
+      input, select {
+        flex: 1;
+        padding: 8px 10px;
+        font-size: 25px;
+        border: 2px solid #fb923c;
+        border-radius: 5px;
+        background-color: #1a1a1a;
+        color: #fbbf24;
+      }
+      input::placeholder {
+        color: #fbbf2477;
+      }
+      input:focus, select:focus {
+        outline: none;
+        border-color: #f97316;
+        background-color: #000;
+        color: #fff;
+      }
+      button {
+        padding: 10px 16px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        margin-right: 12px;
+        font-weight: 600;
+        box-shadow: 0 3px 8px #fb923caa;
+        color: #1a1a1a;
+        background-color: #fb923c;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #f97316;
+        color: #fff;
+        box-shadow: 0 5px 15px #f9731699;
+      }
+      #status {
+        margin-top: 20px;
+        font-weight: 600;
+        text-align: center;
+        color: #fb923c;
+      }
+    
+      
+    </style>
+  </head>
+  <body>
 
-          const data = doc.data();
-          document.getElementById("name").value = data.Name || "";
-          document.getElementById("password").value = data.Password || "";
-          document.getElementById("mobile").value = data.Mobile || "";
-          document.getElementById("age").value = data.Age || "";
-          document.getElementById("address").value = data.Address || "";
-          document.getElementById("gender").value = data.Gender || "";
-          document.getElementById("status").innerText = "Data loaded. You can now edit and update.";
-          document.getElementById("email").disabled = true;
-        })
-        .catch(error => {
-          console.error("Error loading data: ", error);
-          document.getElementById("status").innerText = "Error loading data: " + error.message;
-        });
+
+    <h2>Register to Become a Member of “Sikhs in UAE” Group - Belong, Connect & Thrive. </h2>
+    <h3>Membership open to everyone, not just Sikhs.  </h3> 
+
+    <form id="editForm">
+      <div class="form-row">
+        <label for="email">Email: <span style="color: #f00;">*</span> <br> (mandatory)</label>
+        <input type="email" id="email" placeholder="Email (used as ID)" required />
+      </div>
+
+      <div class="form-row">
+        <label for="name">Name: <span style="color: #f00;">*</span> <br>(mandatory)</label>
+        <input type="text" id="name" placeholder="Your Full Name" />
+      </div>
+
+      <div class="form-row">
+        <label for="password">Password: <span style="color: #f00;">*</span> <br>(mandatory)</label>
+        <input type="password" id="password" placeholder="Choose a password" />
+      </div>
+
+      <div class="form-row">
+        <label for="mobile">Mobile: <span style="color: #f00;">*</span> <br>(mandatory)</label>
+        <input type="number" id="mobile" placeholder="Mobile number (9 digits or more)" />
+      </div>
+
+      <div class="form-row">
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Your age" />
+      </div>
+
+      <div class="form-row">
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Your address" maxlength="150" />
+      </div>
+
+      <div class="form-row">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+          <option value="">-- Select Gender --</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <div style="margin-top: 25px; text-align: center;">
+        <!-- <button type="button" onclick="loadData()">Load Existing Data</button> -->
+        <button type="submit">Add / Update Data</button>
+        <button type="button" onclick="resetForm()">Clear Form</button>
+      </div>
+
+      <p id="status"></p>
+
+      <h3>If you face any issues, please contact <a href="mailto:sikhsuae@gmail.com">sikhsuae@gmail.com</a></h3>
+
+    </form>
+
+<button 
+  type="button" 
+  onclick="goBack()" 
+  style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+  Back
+</button>
+
+    <script>
+
+  function goBack() 
+    {
+      window.location.href = "./index.html";
     }
 
-    function clearForm(keepEmail = true) {
-      if (!keepEmail) document.getElementById("email").value = "";
-      document.getElementById("name").value = "";
-      document.getElementById("password").value = "";
-      document.getElementById("mobile").value = "";
-      document.getElementById("age").value = "";
-      document.getElementById("address").value = "";
-      document.getElementById("gender").value = "";
-    }
+    const firebaseConfig = {
+    apiKey: "AIzaSyBGhLdEcfLYzZAWAA_je63DHnazpHHZZpQ",
+    authDomain: "sihksinuae.firebaseapp.com",
+    projectId: "sihksinuae",
+    storageBucket: "sihksinuae.firebasestorage.app",
+    messagingSenderId: "119237159141",
+    appId: "1:119237159141:web:39acb9510020a8a7808c0c",
+    measurementId: "G-RNXNN6TCB0"
+  };
 
-    function resetForm() {
-      clearForm(false);
-      document.getElementById("email").disabled = false;
-      document.getElementById("status").innerText = "";
-    }
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
 
-    function validateEmail(email) {
-      // Simple check for @ presence and something before and after
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
+      function loadData() {
+        const email = document.getElementById("email").value.trim();
+        if (!email) return alert("Please enter an email.");
 
-    function validatePassword(pwd) {
-      // Minimum 8 chars, at least one letter and one number, special characters allowed
-      return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(pwd);
-    }
+        db.collection("sikhdatabaseuae").doc(email).get()
+          .then(doc => {
+            if (!doc.exists) {
+              document.getElementById("status").innerText = "No user found with this email.";
+              clearForm(false);
+              return;
+            }
 
-    document.getElementById("editForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const email = document.getElementById("email").value.trim();
-      const name = document.getElementById("name").value.trim();
-      const password = document.getElementById("password").value;
-      const mobile = document.getElementById("mobile").value.trim();
-      const ageVal = document.getElementById("age").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const gender = document.getElementById("gender").value;
-
-      if (!email) {
-        alert("Email is required.");
-        return;
-      }
-      if (!validateEmail(email)) {
-        alert("Email address is incorrect.");
-        return;
+            const data = doc.data();
+            document.getElementById("name").value = data.Name || "";
+            document.getElementById("password").value = data.Password || "";
+            document.getElementById("mobile").value = data.Mobile || "";
+            document.getElementById("age").value = data.Age || "";
+            document.getElementById("address").value = data.Address || "";
+            document.getElementById("gender").value = data.Gender || "";
+            document.getElementById("status").innerText = "Data loaded. You can now edit and update.";
+            document.getElementById("email").disabled = true;
+          })
+          .catch(error => {
+            console.error("Error loading data: ", error);
+            document.getElementById("status").innerText = "Error loading data: " + error.message;
+          });
       }
 
-      if (!name) {
-        alert("Name is required.");
-        return;
+      function clearForm(keepEmail = true) {
+        if (!keepEmail) document.getElementById("email").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("gender").value = "";
       }
 
-      if (!password) {
-        alert("Password is required.");
-        return;
-      }
-      if (!validatePassword(password)) {
-        alert("Password must be at least 8 characters long and contain both letters and numbers.");
-        return;
+      function resetForm() {
+        clearForm(false);
+        document.getElementById("email").disabled = false;
+        document.getElementById("status").innerText = "";
       }
 
-      if (!mobile) {
-        alert("Mobile number is required.");
-        return;
+      function validateEmail(email) {
+        // Simple check for @ presence and something before and after
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
 
-      if (!/^\d{9,}$/.test(mobile)) {
-        alert("Mobile number must be 9 digits or more.");
-        return;
+      function validatePassword(pwd) {
+        // Minimum 8 chars, at least one letter and one number, special characters allowed
+        return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(pwd);
       }
 
-      if (ageVal) {
-        const age = Number(ageVal);
-        if (age <= 1 || age >= 110) {
-          alert("Age must be greater than 1 and less than 110.");
+      document.getElementById("editForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const password = document.getElementById("password").value;
+        const mobile = document.getElementById("mobile").value.trim();
+        const ageVal = document.getElementById("age").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const gender = document.getElementById("gender").value;
+
+        if (!email) {
+          alert("Email is required.");
           return;
         }
-      }
+        if (!validateEmail(email)) {
+          alert("Email address is incorrect.");
+          return;
+        }
 
-      if (address.length > 150) {
-        alert("Address cannot exceed 150 characters.");
-        return;
-      }
+        if (!name) {
+          alert("Name is required.");
+          return;
+        }
 
-      const data = {
-        Email: email,
-        Name: name,
-        Password: password,
-        Mobile: Number(mobile),
-        Age: ageVal ? Number(ageVal) : null,
-        Address: address,
-        Gender: gender
-      };
+        if (!password) {
+          alert("Password is required.");
+          return;
+        }
+        if (!validatePassword(password)) {
+          alert("Password must be at least 8 characters long and contain both letters and numbers.");
+          return;
+        }
 
-      db.collection("sikhdatabaseuae").doc(email).set(data)
-        .then(() => {
-          document.getElementById("status").innerText = "🎉 Congratulations! You are now a member of Sikhs in UAE.";
-          document.getElementById("email").disabled = false;
-          clearForm(false);  // Clear all form fields including email
-        })
-        .catch(error => {
-          console.error("Error writing document: ", error);
-          document.getElementById("status").innerText = "Error adding/updating data: " + error.message;
-        });
-    });
+        if (!mobile) {
+          alert("Mobile number is required.");
+          return;
+        }
 
-   function goBack() 
-   {
-     // window.location.href = "C:\Users\F08249D\OneDrive - CNH Industrial\Desktop\Misc 160902023\SikhsinUAE\Index.html";
-   window.location.href = "./index.html";
-    }
+        if (!/^\d{9,}$/.test(mobile)) {
+          alert("Mobile number must be 9 digits or more.");
+          return;
+        }
+
+        if (ageVal) {
+          const age = Number(ageVal);
+          if (age <= 1 || age >= 110) {
+            alert("Age must be greater than 1 and less than 110.");
+            return;
+          }
+        }
+
+        if (address.length > 150) {
+          alert("Address cannot exceed 150 characters.");
+          return;
+        }
+
+        const data = {
+          Email: email,
+          Name: name,
+          Password: password,
+          Mobile: Number(mobile),
+          Age: ageVal ? Number(ageVal) : null,
+          Address: address,
+          Gender: gender
+        };
+
+        db.collection("sikhdatabaseuae").doc(email).set(data)
+          .then(() => {
+            document.getElementById("status").innerText = "🎉 Congratulations! You are now a member of Sikhs in UAE.";
+            document.getElementById("email").disabled = false;
+            clearForm(false);  // Clear all form fields including email
+          })
+          .catch(error => {
+            console.error("Error writing document: ", error);
+            document.getElementById("status").innerText = "Error adding/updating data: " + error.message;
+          });
+      });
+
+  
 
 
-  </script>
+    </script>
 
-</body>
-</html>
+  </body>
+  </html>
