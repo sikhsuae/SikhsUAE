@@ -169,14 +169,22 @@
   style="width: 150px; height:60px; font-size: 36px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
   Back
 </button>
-
+<button 
+  type="button" 
+  onclick="admin()" 
+  style="width: 100px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px 20px 0 auto; text-align: center;">
+  Admin
+</button>
     <script>
 
   function goBack() 
     {
       window.location.href = "./index.html";
     }
-
+ function admin()
+    {
+      window.location.href = "./Password.html";
+    }
     const firebaseConfig = {
     apiKey: "AIzaSyBGhLdEcfLYzZAWAA_je63DHnazpHHZZpQ",
     authDomain: "sihksinuae.firebaseapp.com",
@@ -189,7 +197,7 @@
 
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
-
+    import { serverTimestamp } from "firebase/firestore";
       function loadData() {
         const email = document.getElementById("email").value.trim();
         if (!email) return alert("Please enter an email.");
@@ -309,6 +317,9 @@
           Age: ageVal ? Number(ageVal) : null,
           Address: address,
           Gender: gender
+          Date_created: serverTimestamp()
+            // Date_created: firebase.firestore.FieldValue.serverTimestamp()
+    
         };
 
         db.collection("sikhdatabaseuae").doc(email).set(data)
