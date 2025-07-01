@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firestore Timestamp Test</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <button onclick="addTestData()">Test Firestore Timestamp</button>
+    <p id="status"></p>
+
+    <script>
+      // ✅ Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBGhLdEcfLYzZAWAA_je63DHnazpHHZZpQ",
+        authDomain: "sihksinuae.firebaseapp.com",
+        projectId: "sihksinuae",
+        storageBucket: "sihksinuae.firebasestorage.app",
+        messagingSenderId: "119237159141",
+        appId: "1:119237159141:web:39acb9510020a8a7808c0c",
+        measurementId: "G-RNXNN6TCB0"
+      };
+
+      // ✅ Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      function addTestData() {
+        const testData = {
+          name: "Test User",
+          Date_created: firebase.firestore.FieldValue.serverTimestamp() // ✅ correct usage
+        };
+
+        db.collection("test_timestamp").add(testData)
+          .then(docRef => {
+            document.getElementById("status").innerText = "✅ Timestamp added to Firestore!";
+            console.log("Document written with ID: ", docRef.id);
+          })
+          .catch(error => {
+            document.getElementById("status").innerText = "❌ Error: " + error;
+            console.error("Error adding document: ", error);
+          });
+      }
+    </script>
+  </body>
+</html>

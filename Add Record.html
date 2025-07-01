@@ -5,7 +5,8 @@
     <title>Sikhs in UAE – Membership Form</title>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <style>
+
+   <style>
       body {
         background-color: #1a1a1a;
         color: #fbbf24;
@@ -197,7 +198,8 @@
 
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
-    import { serverTimestamp } from "firebase/firestore";
+    // import { serverTimestamp } from "firebase/firestore";
+    const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
       function loadData() {
         const email = document.getElementById("email").value.trim();
         if (!email) return alert("Please enter an email.");
@@ -316,8 +318,8 @@
           Mobile: Number(mobile),
           Age: ageVal ? Number(ageVal) : null,
           Address: address,
-          Gender: gender
-          Date_created: serverTimestamp()
+          Gender: gender,
+          Date_created: firebase.firestore.FieldValue.serverTimestamp()
             // Date_created: firebase.firestore.FieldValue.serverTimestamp()
     
         };
