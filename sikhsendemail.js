@@ -14,7 +14,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // EmailJS config
-const EMAILJS_SERVICE_ID = "service_jitwsrj";
+const EMAILJS_SERVICE_ID = "service_ork86m7";
 const EMAILJS_TEMPLATE_ID = "template_m0u22pm";
 const EMAILJS_USER_ID = "qcbXaXrWGMaIRt6_o";
 const EMAILJS_PRIVATE_KEY = "g1HH-DK2771AldTTDT3Tk";
