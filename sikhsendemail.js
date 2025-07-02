@@ -1,29 +1,23 @@
-﻿const admin = require("firebase-admin");
-const emailjs = require("@emailjs/nodejs");
-require("dotenv").config();
-
-// Decode and parse service account key from environment variable
-const serviceAccountKey = Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_KEY, "base64").toString("utf8");
-const serviceAccount = JSON.parse(serviceAccountKey);
-
-// Initialize Firebase Admin SDK
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-
-const db = admin.firestore();
+﻿const emailjs = require("@emailjs/nodejs");
 
 // EmailJS config
-const EMAILJS_SERVICE_ID = "service_ork86m7";
-const EMAILJS_TEMPLATE_ID = "template_m0u22pm";
-const EMAILJS_USER_ID = "qcbXaXrWGMaIRt6_o";
-const EMAILJS_PRIVATE_KEY = "g1HH-DK2771AldTTDT3Tk";
+const EMAILJS_SERVICE_ID = "service_n17cw2u";
+const EMAILJS_TEMPLATE_ID = "template_4eznr7w";
+const EMAILJS_PUBLIC_KEY = "bR8jobS4ge96abRNK";
+const EMAILJS_PRIVATE_KEY = "kcjoxRyDn2c6BAtBkV8A9";
 
-async function sendEmail(toEmail, message, subject, fromname, toname, fileName, occasionvar) {
+// Function to send a test email
+async function sendEmail() {
+  const toEmail = "sikhsuae@gmail.com"; // Your email to receive the message
+  const toname = "Sikhs in UAE";
+  const fromname = "Your Website Visitor";
+  const subject = "Test Invitation";
+  const message = "This is a test invitation email sent via EmailJS Node.js SDK.";
+  const fileName = "invite.pdf";
+  const occasionvar = "event2025";
+
   try {
-    console.log("Sending email to:", toEmail);
-
-    emailjs.init(EMAILJS_USER_ID);
+    console.log("📤 Sending email to:", toEmail);
 
     const response = await emailjs.send(
       EMAILJS_SERVICE_ID,
@@ -33,53 +27,21 @@ async function sendEmail(toEmail, message, subject, fromname, toname, fileName, 
         subject,
         from_name: fromname,
         to_name: toname,
-        from_email: "sikhsuae@gmail.com", // use your actual sender address
-        email: toEmail,
+        from_email: "someone@example.com", // sender's email
+        email: toEmail,                    // your email
         link: `https://taviarora.github.io/eventmarch2025/${occasionvar}/${fileName}`,
       },
       {
-        publicKey: EMAILJS_USER_ID,
-        privateKey: EMAILJS_PRIVATE_KEY
+        publicKey: EMAILJS_PUBLIC_KEY,
+        privateKey: EMAILJS_PRIVATE_KEY,
       }
     );
 
-    console.log("✅ Email sent to", toEmail, response);
+    console.log("✅ Email sent:", response.status, response.text);
   } catch (error) {
-    console.error("❌ Error sending email to", toEmail, error);
+    console.error("❌ Error sending email:", error);
   }
 }
 
-async function sendEmails() {
-  console.log("📨 Starting to send emails...");
-
-  try {
-    const snapshot = await db.collection("Event").get();
-
-    if (snapshot.empty) {
-      console.log("No event records found.");
-      return;
-    }
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const toEmail = data.Email;
-      const toname = data.Name;
-      const message = data.Message || "You are invited!";
-      const subject = data.Subject || "Welcome to Sikhs in UAE!";
-      const fromname = "Sikhs in UAE Team";
-      const fileName = data.FileName || "default.pdf";
-      const occasionvar = data.Event || "default";
-
-      if (toEmail && toname) {
-        sendEmail(toEmail, message, subject, fromname, toname, fileName, occasionvar);
-      } else {
-        console.warn("Skipping record due to missing email or name:", doc.id);
-      }
-    });
-  } catch (error) {
-    console.error("🔥 Error loading records from Firestore:", error);
-  }
-}
-
-// Run the script
-sendEmails();
+// Run it
+sendEmail();
