@@ -176,6 +176,7 @@
         </div>
 
         <div>
+          
           <label for="mobile">Mobile Number</label>
           <input type="text" id="mobile" name="mobile" placeholder="mobile" required>
         </div>
@@ -187,13 +188,25 @@
 
         <input id="honeypot" class="hidden" type="text" />
 
-        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="sendEmail()">Submit</button>
 
         <div id="status" class="center-text"></div>
       </form>
     </div>
   </div>
 
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "bR8jobS4ge96abRNK",
+      });
+   })();
+</script>
+<script src="sikhsendemail.js">
+  </script>
   <script>
     function submitForm() {
       var honeypot = document.getElementById("honeypot").value;
