@@ -44,14 +44,21 @@
 //   "invite.pdf",
 //   "event2025"
 // );
-function sendEmail()
-{
-  let parms={
-     name : document.getElementById("name").value,
-     email : document.getElementById("email").value,
-     mobile : document.getElementById("mobile").value,
-      feedback : document.getElementById("feedback").value,
-}
+function sendEmail() {
+  let parms = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    mobile: document.getElementById("mobile").value,
+    feedback: document.getElementById("feedback").value,
+  };
 
-emailjs.send("service_n17cw2u","template_4eznr7w",parms).then(alert("Email sent!!"))
+  emailjs.send("service_n17cw2u", "template_4eznr7w", parms)
+    .then(function(response) {
+      alert("Email sent!!");
+      location.reload(); // Reload page after successful send
+    })
+    .catch(function(error) {
+      console.error("FAILED...", error);
+      alert("Failed to send email.");
+    });
 }
