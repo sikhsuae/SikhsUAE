@@ -204,6 +204,119 @@
       });
    })();
 </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const mobileInput = document.getElementById("mobile");
+    const feedbackInput = document.getElementById("feedback");
+    const status = document.getElementById("status");
+
+    // Store error message elements for each input
+    const errorMessages = {};
+
+    function createErrorElement(input) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "error-message";
+      errorDiv.style.color = "red";
+      errorDiv.style.fontSize = "0.9em";
+      errorDiv.style.marginBottom = "5px";
+      input.parentNode.appendChild(errorDiv);
+      errorMessages[input.id] = errorDiv;
+    }
+
+    // Create and store error elements
+    [nameInput, emailInput, mobileInput, feedbackInput].forEach(createErrorElement);
+
+    // Trigger all validations on load
+validateName();
+validateEmail();
+validateMobile();
+validateFeedback();
+
+
+    function setError(input, message) {
+      input.style.borderColor = "red";
+      errorMessages[input.id].textContent = message;
+    }
+
+    function clearError(input) {
+      input.style.borderColor = "var(--input-border)";
+      errorMessages[input.id].textContent = "";
+    }
+
+    function validateName() {
+      if (!nameInput.value.trim()) {
+        setError(nameInput, "Name is required.");
+        return false;
+      }
+      clearError(nameInput);
+      return true;
+    }
+
+    function validateEmail() {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim()) {
+        setError(emailInput, "Email is required.");
+        return false;
+      } else if (!emailRegex.test(emailInput.value.trim())) {
+        setError(emailInput, "Enter a valid email (e.g. user@example.com).");
+        return false;
+      }
+      clearError(emailInput);
+      return true;
+    }
+
+    function validateMobile() {
+      const digitsOnly = mobileInput.value.replace(/\D/g, '');
+      if (!mobileInput.value.trim()) {
+        setError(mobileInput, "Mobile number is required.");
+        return false;
+      } else if (digitsOnly.length < 9) {
+        setError(mobileInput, "Mobile number must be at least 9 digits.");
+        return false;
+      }
+      clearError(mobileInput);
+      return true;
+    }
+
+    function validateFeedback() {
+      if (!feedbackInput.value.trim()) {
+        setError(feedbackInput, "Feedback is required.");
+        return false;
+      }
+      clearError(feedbackInput);
+      return true;
+    }
+
+    // Real-time validation
+    nameInput.addEventListener("input", validateName);
+    emailInput.addEventListener("input", validateEmail);
+    mobileInput.addEventListener("input", validateMobile);
+    feedbackInput.addEventListener("input", validateFeedback);
+
+    window.sendEmail = function () {
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isMobileValid = validateMobile();
+      const isFeedbackValid = validateFeedback();
+
+      if (!(isNameValid && isEmailValid && isMobileValid && isFeedbackValid)) {
+        status.innerText = "Please correct the highlighted fields.";
+        return;
+      }
+
+      status.innerText = ""; // Clear if all valid
+      submitForm();
+    };
+  });
+</script>
+
+
+
+
 <script src="sikhsendemail.js">
   </script>
   <script>
