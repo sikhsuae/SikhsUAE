@@ -199,12 +199,9 @@
 </script>
 <script type="text/javascript">
    (function(){
-      emailjs.init({
-        publicKey: "bR8jobS4ge96abRNK",
-      });
+      emailjs.init("bR8jobS4ge96abRNK");
    })();
 </script>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -231,11 +228,10 @@
     [nameInput, emailInput, mobileInput, feedbackInput].forEach(createErrorElement);
 
     // Trigger all validations on load
-validateName();
-validateEmail();
-validateMobile();
-validateFeedback();
-
+    validateName();
+    validateEmail();
+    validateMobile();
+    validateFeedback();
 
     function setError(input, message) {
       input.style.borderColor = "red";
@@ -309,47 +305,29 @@ validateFeedback();
       }
 
       status.innerText = ""; // Clear if all valid
-      submitForm();
+
+      // Send email using EmailJS
+      const params = {
+        name: nameInput.value,
+        email: emailInput.value,
+        mobile: mobileInput.value,
+        feedback: feedbackInput.value
+      };
+
+      emailjs.send("service_n17cw2u", "template_4eznr7w", params)
+        .then(function(response) {
+          console.log("✅ SUCCESS!", response.status, response.text);
+          status.innerText = "Thank you! Your feedback has been sent.";
+          document.getElementById("feedbackForm").reset();  // Reset the form
+        })
+        .catch(function(error) {
+          console.error("❌ FAILED...", error);
+          status.innerText = "Something went wrong. Please try again.";
+        });
     };
   });
 </script>
 
-
-
-
-<script src="sikhsendemail.js">
-  </script>
-  <script>
-    function submitForm() {
-      var honeypot = document.getElementById("honeypot").value;
-      if (honeypot) {
-        return; // Bot detected
-      }
-
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var mobile = document.getElementById("mobile").value;
-      var feedback = document.getElementById("feedback").value;
-
-      var url = "https://script.google.com/macros/s/AKfycbxLQd4XpMkW9-hnLuUA3FhizXKG2bBrAs_Mboggpxaflz_AJ_MmLgzG-CFqEUq8lp2CNg/exec";
-
-      var formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('mobile', mobile);
-      formData.append('feedback', feedback);
-
-      fetch(url, {
-        method: 'POST',
-        body: formData
-      }).then(response => {
-        document.getElementById("status").innerHTML = "Feedback submitted!";
-        document.getElementById("feedbackForm").reset();
-      }).catch(error => {
-        document.getElementById("status").innerHTML = "Error submitting feedback!";
-      });
-    }
-  </script>
     <!-- Back Button -->
 <button 
   type="button" 

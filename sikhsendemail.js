@@ -54,11 +54,12 @@ function sendEmail() {
 
   emailjs.send("service_n17cw2u", "template_4eznr7w", parms)
     .then(function(response) {
-      alert("Email sent!!");
-      location.reload(); // Reload page after successful send
+      console.log("✅ SUCCESS!", response.status, response.text);
+      document.getElementById("status").innerText = "Thank you! Your feedback has been sent.";
+      document.getElementById("feedbackForm").reset();  // Reset the form
     })
     .catch(function(error) {
-      console.error("FAILED...", error);
-      alert("Failed to send email.");
+      console.error("❌ FAILED...", error);
+      document.getElementById("status").innerText = "Something went wrong. Please try again.";
     });
 }
