@@ -176,6 +176,19 @@
   style="width: 100px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px 20px 0 auto; text-align: center;">
   Admin
 </button>
+
+
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("bR8jobS4ge96abRNK");
+   })();
+</script>
+<script src="addrecordemail.js"></script>
+
     <script>
 
   function goBack() 
@@ -324,19 +337,37 @@
     
         };
 
-        db.collection("sikhdatabaseuae").doc(email).set(data)
-          .then(() => {
-            document.getElementById("status").innerText = "🎉 Congratulations! You are now a member of Sikhs in UAE.";
-            document.getElementById("email").disabled = false;
-            clearForm(false);  // Clear all form fields including email
-          })
-          .catch(error => {
-            console.error("Error writing document: ", error);
-            document.getElementById("status").innerText = "Error adding/updating data: " + error.message;
-          });
-      });
+       db.collection("sikhdatabaseuae").doc(email).set(data)
+            .then(() => {
+                document.getElementById("status").innerText = "🎉 Congratulations! You are now a member of Sikhs in UAE.";
+                sendEmail(email, name, mobile, ageVal, address, gender); // Send confirmation email
+                clearForm(false);  // Clear the form fields after submission
+            })
+            .catch(error => {
+                console.error("Error adding/updating data: ", error);
+                document.getElementById("status").innerText = "Error adding/updating data: " + error.message;
+            });
+    });
 
-  
+    function sendEmail(email, name, mobile, age, address, gender) {
+        const emailParams = {
+            email: email,
+            name: name,
+            mobile: mobile,
+            age: age,
+            address: address,
+            gender: gender
+        };
+
+        emailjs.send("service_p8xn1qd", "template_tieidup", emailParams)
+            .then(response => {
+                console.log("✅ Email sent successfully:", response.status, response.text);
+            })
+            .catch(error => {
+                console.error("❌ Failed to send email:", error);
+                document.getElementById("status").innerText = "Error sending email: " + error.message;
+            });
+    }
 
 
     </script>
