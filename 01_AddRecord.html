@@ -332,8 +332,11 @@
           Age: ageVal ? Number(ageVal) : null,
           Address: address,
           Gender: gender,
-          Date_created: firebase.firestore.FieldValue.serverTimestamp()
+          // Date_created: firebase.firestore.FieldValue.serverTimestamp()
+          // Date_created: firebase.firestore.Timestamp.now()
             // Date_created: firebase.firestore.FieldValue.serverTimestamp()
+            Date_created: new Date().toLocaleString()  
+
     
         };
 
