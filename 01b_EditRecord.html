@@ -6,7 +6,108 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <style>
-    /* Your existing styles unchanged for brevity */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000000;
+      margin: 20px;
+    }
+
+    h2, h3 {
+      color: #FF9933;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 1px solid #000000;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #FF9933;
+      color: #000000;
+    }
+
+    .edit-btn, .delete-btn {
+      background-color: #FF9933;
+      color: #000000;
+      border: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .edit-btn:hover, .delete-btn:hover {
+      background-color: #e67e00;
+    }
+
+    form {
+      margin-top: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      border: 2px solid #FF9933;
+      background-color: #fff;
+    }
+
+    .form-row {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #000000;
+      border-radius: 3px;
+      color: #000000;
+    }
+
+    button {
+      background-color: #FF9933;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #e67e00;
+    }
+
+    #status {
+      margin-top: 10px;
+      text-align: center;
+      color: #FF9933;
+      font-weight: bold;
+    }
+
+    .footnote {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #000000;
+    }
+
+    .footnote p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -30,7 +131,7 @@
       </thead>
       <tbody id="recordsTableBody">
         <tr>
-          <td colspan="8" style="text-align: center; padding: 10px; color: #fb923c99;">
+          <td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">
             Loading records...
           </td>
         </tr>
@@ -95,7 +196,7 @@
   <button 
     type="button" 
     onclick="goBack()" 
-    style="width: 150px; height:60px; font-size: 36px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+    style="width: 150px; height:60px; font-size: 36px; background-color: #FF9933; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
     Back
   </button>
 
@@ -119,12 +220,12 @@
 
     function loadAllRecords() {
       const tbody = document.getElementById("recordsTableBody");
-      tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #fb923c99;">Loading records...</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">Loading records...</td></tr>';
 
       db.collection("sikhdatabaseuae").get()
         .then(querySnapshot => {
           if (querySnapshot.empty) {
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #fb923c;">No records found.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">No records found.</td></tr>';
             return;
           }
 
