@@ -8,8 +8,8 @@
   <!-- Open Graph meta tags for social media previews -->
   <meta property="og:title" content="Preserving Heritage, Inspiring Future" />
   <meta property="og:description" content="A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates." />
-  <meta property="og:image" content="https://sikhsinuae.com/pictures/00_Index/SikhsinUAE.png" />
-  <meta property="og:url" content="https://sikhsinuae.com/index.html" />
+  <meta property="og:image" content="http://yourdomain.com/pictures/00_Index/SikhsinUAE.png" />
+  <meta property="og:url" content="http://yourdomain.com/index.html" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -22,7 +22,7 @@
 
     header {
             width: 100%;
-            background-color:  #fcbf1e;
+            /* background-color:  #FF9933; */
             text-align: center;
         }
         header img {
@@ -151,29 +151,7 @@
       max-width: 100%;
     }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px;
-      background-color: #FFA500;
-      color: black;
-      flex-wrap: wrap;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    footer div {
-      flex: 1;
-      text-align: center;
-      margin: 0.5rem 0;
-    }
-
-    footer img {
-      height: 60px;
-      width: auto;
-      vertical-align: middle;
-    }
+   
 
     /* Responsive styles */
     @media (max-width: 768px) {
@@ -264,28 +242,41 @@
         max-width: 200px;
       }
 
-      footer {
-        flex-direction: column;
-        font-size: 0.8rem;
-        text-align: center;
-        padding: 1rem;
-      }
+ footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #FF9933;
+  border: 3px solid #FF9933;
+  color: black;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  flex-wrap: wrap;
+    min-height: 60px;
+}
 
-      footer div {
-        flex: 1 1 100%;
-        margin: 0.5rem 0;
-      }
-
-      footer img {
-        height: 50px;
-      }
+footer div {
+  flex: 1 1 100%;
+  margin: 0.5rem 0;
+}
+    
+    footer img 
+    {
+      height: 60px;
+      width: auto;
+      vertical-align: middle;
     }
+
+  
   </style>
 </head>
 <body>
 <header>
    
-        <img src="./pictures/00_Index/Header.jpg" alt="Header Image" width="1032" height="139" />
+        <img src="./pictures/00_Index/Header.jpg" alt="Header Image" width="1432" height=auto />
     </header>
 
   <section class="hero">
@@ -302,7 +293,7 @@
     <p>
       A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
     </p>
-    <a href="./01_AddRecord.html" class="cta-button" style="font-size: 40px;">Become a Member  </a>
+    <a href="./01_AddRecord.html" class="cta-button" style="font-size: 3  0px;">Become a Member  </a>
 
     <div class="clipart-row">
       <a href="./02_AboutSikhism.html">
@@ -314,29 +305,27 @@
     </div>
   </section>
 
-  <footer>
 
-    <div style="flex: 1; text-align: left;">
-      <a href="./09_ContactUs.html">
-        <img src="./pictures/contactus/ContactUs.png" alt="Contact us" style="background-color: black; border: 2px solid black;">
-      </a>
-    </div>
 
-    <div style="flex: 1; text-align: center;">
-      <a href="./10_Feedback.html">
-        <img src="./pictures/10_Feedback/Feedback.png" alt="Feedback Button">
-      </a>
+<footer style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #FF9933; flex-wrap: wrap;">
 
-    </div>
+  <div style="flex: 1; text-align: left;">
+    <a href="./09_ContactUs.html" style="color: black; text-decoration: none; font-weight: bold; font-size: 20px;">
+      Contact Us
+    </a>
+  </div>
 
-    <div style="flex: 1; text-align: right;">
-      &copy; 2025 Sikhs in UAE. All Rights Reserved.
-    </div>
-  </footer>
+  <div style="flex: 1; text-align: center;">
+    <a href="./10_Feedback.html" style="color: black; text-decoration: none; font-weight: bold; font-size: 20px;">
+      Feedback
+    </a>
+  </div>
+
+  <div style="flex: 1; text-align: right; color: black; font-weight: bold; font-size: 12px;">
+    &copy; 2025 Sikhs in UAE. All Rights Reserved.
+  </div>
+
+</footer>
 
 </body>
 </html>
-
-
-
-
