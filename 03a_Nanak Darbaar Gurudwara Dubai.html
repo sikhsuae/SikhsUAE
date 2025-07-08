@@ -7,31 +7,28 @@
   <meta name="keywords" content="Guru Nanak Darbar, Dubai, Gurudwara, Sikh temple, UAE, interfaith, community">
   <title>Gurudwara Guru Nanak Darbar Ji, Dubai</title>
   <style>
-    /* Ensure that box-sizing is set to border-box for all elements */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Ensure full height for html and body */
     html, body {
-      height: auto;  /* Allow vertical scroll */
+      height: auto;
       width: 100%;
     }
 
     body {
       font-family: Arial, sans-serif;
       background-color: black;
-      color: #FFA500; /* Kesari (orange-yellow) */
+      color: #FFA500;
       margin: 0;
       padding: 0;
     }
 
-    /* Header Container - Flexbox to align the text and image side by side */
     .header-container {
       display: flex;
-      flex-direction: column; /* Stack items on smaller screens */
+      flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       background-color: black;
@@ -39,10 +36,9 @@
       width: 100%;
       max-width: 100%;
       overflow: hidden;
-      flex-shrink: 0; /* Prevent shrinking */
+      flex-shrink: 0;
     }
 
-    /* Style for the header text */
     .header-text {
       color: #FFA500;
       font-size: 2.5rem;
@@ -51,24 +47,23 @@
       flex: 1;
     }
 
-    /* Style for the header image */
     .header-container img {
-      width: 90%; /* Adjust size of the image on smaller screens */
+      width: 90%;
       max-height: 400px;
       object-fit: cover;
     }
 
-    /* Main Title */
     h1 {
       color: #FFA500;
       text-align: center;
       margin: 10px 0;
       font-size: 2.5rem;
     }
-       h2 {
-        font=color: #FF9933
-       }
-    /* Content Section */
+
+    h2 {
+      color: #FF9933;
+    }
+
     .content {
       padding: 5px 10px;
       line-height: 1.7;
@@ -76,7 +71,6 @@
       text-align: justify;
     }
 
-    /* Slideshow Section */
     .slideshow-container {
       max-width: 100%;
       margin: auto;
@@ -87,14 +81,13 @@
       display: none;
     }
 
-    /* Slideshow Image Styling */
     .mySlides img {
       width: 100%;
+      height: auto; /* Ensures proper scaling */
       border: 3px solid #FFA500;
       margin-right: 0.2cm;
     }
 
-    /* Fade Animation for Slideshow */
     .fade {
       animation-name: fade;
       animation-duration: 1.5s;
@@ -105,7 +98,6 @@
       to {opacity: 1}
     }
 
-    /* Footer Styling */
     footer {
       background-color: #111;
       color: #FFA500;
@@ -113,10 +105,25 @@
       font-size: 15px;
       margin-top: 10px;
       padding: 20px 0;
-      flex-shrink: 0; /* Prevent footer from shrinking */
+      flex-shrink: 0;
     }
 
-    
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px;
+      width: 100%;
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+
+    .responsive-iframe {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 4 / 3;
+      border: none;
+    }
 
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
@@ -139,7 +146,7 @@
       }
 
       .header-container img {
-        width: 100%; /* Make the image take the full width on small screens */
+        width: 100%;
       }
     }
 
@@ -149,26 +156,23 @@
       }
 
       .content {
-        font-size: 11px;
+        font-size: 13px;
+        padding: 10px;
+        line-height: 1.6;
+      }
+
+      .header-container img {
+        max-height: 250px;
+      }
+
+      .slideshow-container {
+        padding: 5px;
       }
 
       .back-button img {
         width: 30px;
         height: 30px;
       }
-    }
-        .image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2px;
-    }
-
-    .responsive-iframe {
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 4 / 3;
-      border: none;
     }
   </style>
 </head>
@@ -200,31 +204,24 @@
 
       <!-- Slideshow Section -->
       <div class="slideshow-container">
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar.jpg" alt="Worship Ceremony">
         </div>
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar-1.jpg" alt="Inside View 1">
         </div>
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar-2.jpg" alt="Community Gathering">
         </div>
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar-3.jpg" alt="Architecture Detail">
         </div>
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar-4.jpg" alt="Worship Ceremony">
         </div>
-
         <div class="mySlides fade">
           <img src="./pictures/02a_Gurudwara Nanak Darbaar/GURU NANAK Darbaar-5.jpeg" alt="Worship Ceremony">
         </div>
-
       </div>
     </div>
   </header>
@@ -250,63 +247,51 @@
       slides[slideIndex-1].style.display = "block";
     }
 
-    setInterval(showSlides, 3000); // Change image every 3 seconds
+    setInterval(showSlides, 3000);
   </script>
-  
-<div style="text-align: center;">
-  <img 
-    src="pictures/02a_Gurudwara Nanak Darbaar/Gurudwara Nanak Darbaar Program.jpg" 
-    alt="Program" 
-    style="max-width: 100%; height: auto;">
-</div>
 
-  <!-- <div class="image-container">
-    <iframe class="responsive-iframe"
-      src="https://drive.google.com/file/d/1zeq5w0toRU1JlwtKZYyAx3GiqHXInXo_/preview"
-      allow="autoplay">
-    </iframe>
-  </div> -->
-<div class="image-container">
-  <img 
-    src="https://drive.google.com/thumbnail?id=1zeq5w0toRU1JlwtKZYyAx3GiqHXInXo_&sz=w1000" 
-    alt="Image" 
-    style="width: 600px; height: auto;" />
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <a href="./03a1_Baba Jujhar Singh Dastar Lehar Dubai.html" 
-     style="text-decoration: none; color: inherit; display: block;">
-    
-    <div style="display: flex; align-items: center;">
-      <img src="pictures/02a1_DastarBandi/DastarBandi.png" 
-           alt="Dastar Bandi" 
-           style="cursor: pointer; height: 100px; width: auto; margin-right: 10px;">
-  
-
-      <div style="color: #FF9933;">
-        <h3 style="margin: 0;">Baba Jujhar Singh Dastar Lehar, Dubai - Learn the Art of Tying Turban from the Experts</h3>
-        <h3 style="margin: 0;">&nbsp;&nbsp;ਬਾਬਾ ਜੁਝਾਰ ਸਿੰਘ ਦਸਤਾਰ ਲਹਿਰ, ਦੁਬਈ - ਮਾਹਿਰਾਂ ਤੋਂ ਦਸਤਾਰ ਬੰਨ੍ਹਣ ਦੀ ਕਲਾ ਸਿੱਖੋ</h3>
-      </div>
-      </div>
-        </a> 
+  <div style="text-align: center;">
+    <img 
+      src="pictures/02a_Gurudwara Nanak Darbaar/Gurudwara Nanak Darbaar Program.jpg" 
+      alt="Program" 
+      style="max-width: 100%; height: auto;">
   </div>
 
+  <div class="image-container">
+    <img 
+      src="https://drive.google.com/thumbnail?id=1zeq5w0toRU1JlwtKZYyAx3GiqHXInXo_&sz=w1000" 
+      alt="Image" 
+      style="width: 400px; height: auto;" />
+  </div>
+
+  <div style="display: flex; justify-content: center;">
+    <a href="./03a1_Baba Jujhar Singh Dastar Lehar Dubai.html" 
+       style="text-decoration: none; color: inherit; display: block;">
+      <div style="display: flex; align-items: center;">
+        <img src="pictures/02a1_DastarBandi/DastarBandi.png" 
+             alt="Dastar Bandi" 
+             style="cursor: pointer; height: 100px; width: auto; margin-right: 10px;">
+        <div style="color: #FF9933;">
+          <h3 style="margin: 0;">Baba Jujhar Singh Dastar Lehar, Dubai - Learn the Art of Tying Turban from the Experts</h3>
+          <h3 style="margin: 0;">&nbsp;&nbsp;ਬਾਬਾ ਜੁਝਾਰ ਸਿੰਘ ਦਸਤਾਰ ਲਹਿਰ, ਦੁਬਈ - ਮਾਹਿਰਾਂ ਤੋਂ ਦਸਤਾਰ ਬੰਨ੍ਹਣ ਦੀ ਕਲਾ ਸਿੱਖੋ</h3>
+        </div>
+      </div>
+    </a> 
+  </div>
 
   <!-- Footer Section -->
   <footer>
-    <p><strong>Address:</strong> 3806 Sheikh Zayed Rd - Jebel Ali Village - Dubai      ;  &nbsp  <strong>Phone:</strong> 04 882 7550</p>
-    <p>  © 2025 Guru Nanak Darbar, Dubai. All rights reserved.</p>
+    <p><strong>Address:</strong> 3806 Sheikh Zayed Rd - Jebel Ali Village - Dubai &nbsp;&nbsp; <strong>Phone:</strong> 04 882 7550</p>
+    <p>© 2025 Guru Nanak Darbar, Dubai. All rights reserved.</p>
     <br>
 
-
-
     <!-- Back Button -->
-  <button 
-        type="button" 
-        onclick="goBack()" 
-        style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
-  Back
-  </button>
+    <button 
+      type="button" 
+      onclick="goBack()" 
+      style="width: 150px; height: 40px; font-size: 24px; background-color: #FFA500; color: black; display: block; margin: 20px auto 0 auto; text-align: center;">
+      Back
+    </button>
 
     <script>
       function goBack() {
