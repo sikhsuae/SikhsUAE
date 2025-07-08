@@ -157,6 +157,19 @@
         height: 30px;
       }
     }
+        .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .responsive-iframe {
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 4 / 3;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -247,9 +260,13 @@
     style="max-width: 100%; height: auto;">
 </div>
 
-<div style="text-align: center;">
- <iframe src="https://drive.google.com/file/d/1zeq5w0toRU1JlwtKZYyAx3GiqHXInXo_/preview" width="640" height="480" allow="autoplay"></iframe>
-</div>
+  <div class="image-container">
+    <iframe class="responsive-iframe"
+      src="https://drive.google.com/file/d/1zeq5w0toRU1JlwtKZYyAx3GiqHXInXo_/preview"
+      allow="autoplay">
+    </iframe>
+  </div>
+
 
 <div style="display: flex; justify-content: center;">
   <a href="./03a1_Baba Jujhar Singh Dastar Lehar Dubai.html" 
