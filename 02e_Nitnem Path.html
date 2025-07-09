@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sikhs in UAE – PDF Downloads</title>
   <style>
     body {
@@ -9,6 +10,7 @@
       color: #FF9933;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 40px;
+      margin: 0;
     }
 
     h1 {
@@ -32,6 +34,7 @@
       font-size: 18px;
       background-color: #000000;
       color: #FF9933;
+      word-wrap: break-word;
     }
 
     th {
@@ -62,33 +65,73 @@
       opacity: 0.8;
     }
 
-    @media (max-width: 768px) {
-      table, th, td {
-        font-size: 14px;
-      }
-
-      .view-link, .download-link {
-        padding: 6px 10px;
-        font-size: 13px;
-      }
+    /* Back button styling */
+    .back-button {
+      width: 150px;
+      height: 40px;
+      font-size: 24px;
+      background-color: #FFA500;
+      color: black;
+      margin: 40px auto 0 auto;
+      display: block;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-        /* Back button styling */
-        .back-button {
-            width: 150px;
-            height: 40px;
-            font-size: 24px;
-            background-color: #FFA500;
-            color: black;
-            margin: 40px auto 0 auto;
-            display: block;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .back-button:hover {
-            background-color: #FF8C00;
-        }
+    .back-button:hover {
+      background-color: #FF8C00;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 20px;
+        border: 2px solid #FF9933;
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      td {
+        text-align: left;
+        padding: 8px 12px;
+        font-size: 16px;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 6px;
+        color: #FFA500;
+      }
+
+      .back-button {
+        font-size: 18px;
+        height: auto;
+        padding: 10px;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -103,97 +146,84 @@
         <th>Punjabi</th>
         <th>Hindi</th>
         <th>English</th>
-                <th>Hindi-Punjabi-English</th>
+        <th>Hindi-Punjabi-English</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Row 1 -->
-<tr>
- <td rowspan="5">Morning</td>
-  <td>Japji Sahib</td>
-  <td>-</td>
-<td><a href="./49_Content/Path/01b_Japji_Sahib_H.pdf" target="_blank">Japji Sahib-Hindi</a></td>
-  <td>-</td>
-<td><a href="./49_Content/Path/01d_Japji_Sahib_HPE.pdf" target="_blank">Japji Sahib-Hindi/Punjabi/English</a></td>
-
-
-</tr>
-<tr>
-
-  <td>Jaap Sahib</td>
-  <td>-</td>
-<td><a href="./49_Content/Path/02b_Jaap_Sabib_H.pdf" target="_blank">Jaap Sahib-Hindi</a></td>
-  <td>-</td>
-    <td>-</td>
-</tr>
-<tr>
-      <!-- <td>Morning</td> -->
-  <td>Tav-Prasad Savaiye</td>
-  <td>-</td>
-  <td><a href="./49_Content/Path/03b_Tav-Prasad_Savaiye_H.pdf" target="_blank">Tav Prasad  Savaiye-Hindi</a></td>
-  <td>-</td>
-    <td>-</td>
-</tr>
-<tr>
-      <!-- <td>Morning</td> -->
-  <td>Chaupai Sahib</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-    <td>-</td>
-</tr>
-<tr>
-      <!-- <td>Morning</td> -->
-
-  <td>Anand Sahib</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-
-<td><a href="./49_Content/Path/05d_Anand_Saahib_HPE.pdf" target="_blank">Anand Saahib-Hindi/Punjabi/English</a></td>
-</tr>
-
-
-<tr>
-      <td>Evening</td>
-  <td>Rehras Sahib</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-<td><a href="./49_Content/Path/06d_ Rehraas Saahib_HPE.pdf" target="_blank">Rehraas Saahib-Hindi/Punjabi/English</a></td>
-</tr>
-<tr>
-        <td>Night</td>
-  <td>Kirtan Sohila</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- <td><a href="./49_Content/Path/07d_Kirtan_Sohilaa.pdf" target="_blank">Kirtan Sohilaa-Hindi/Punjabi/English</a></td>
-</tr>
-
-<tr>
-
- <td colspan="2">Ardaas</td>
-   <!-- <td>-</td> -->
- <td><a href="./49_Content/Path/08b_Ardaas_P.pdf" target="_blank">Ardaas-Punjabi</a></td>
-  <td>-</td>
-    <td>-</td>
-  <td>-</td>
-
-</tr>
+      <tr>
+        <td data-label="Timings" rowspan="5">Morning</td>
+        <td data-label="Path">Japji Sahib</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi"><a href="./49_Content/Path/01b_Japji_Sahib_H.pdf" target="_blank">Japji Sahib-Hindi</a></td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E"><a href="./49_Content/Path/01d_Japji_Sahib_HPE.pdf" target="_blank">Japji Sahib-Hindi/Punjabi/English</a></td>
+      </tr>
+      <tr>
+        <td data-label="Path">Jaap Sahib</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi"><a href="./49_Content/Path/02b_Jaap_Sabib_H.pdf" target="_blank">Jaap Sahib-Hindi</a></td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E">-</td>
+      </tr>
+      <tr>
+        <td data-label="Path">Tav-Prasad Savaiye</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi"><a href="./49_Content/Path/03b_Tav-Prasad_Savaiye_H.pdf" target="_blank">Tav Prasad Savaiye-Hindi</a></td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E">-</td>
+      </tr>
+      <tr>
+        <td data-label="Path">Chaupai Sahib</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi">-</td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E">-</td>
+      </tr>
+      <tr>
+        <td data-label="Path">Anand Sahib</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi">-</td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E"><a href="./49_Content/Path/05d_Anand_Saahib_HPE.pdf" target="_blank">Anand Saahib-Hindi/Punjabi/English</a></td>
+      </tr>
+      <tr>
+        <td data-label="Timings">Evening</td>
+        <td data-label="Path">Rehras Sahib</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi">-</td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E"><a href="./49_Content/Path/06d_ Rehraas Saahib_HPE.pdf" target="_blank">Rehraas Saahib-Hindi/Punjabi/English</a></td>
+      </tr>
+      <tr>
+        <td data-label="Timings">Night</td>
+        <td data-label="Path">Kirtan Sohila</td>
+        <td data-label="Punjabi">-</td>
+        <td data-label="Hindi">-</td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E"><a href="./49_Content/Path/07d_Kirtan_Sohilaa.pdf" target="_blank">Kirtan Sohilaa-Hindi/Punjabi/English</a></td>
+      </tr>
+      <tr>
+        <td data-label="Timings" colspan="2">Ardaas</td>
+        <td data-label="Punjabi"><a href="./49_Content/Path/08b_Ardaas_P.pdf" target="_blank">Ardaas-Punjabi</a></td>
+        <td data-label="Hindi">-</td>
+        <td data-label="English">-</td>
+        <td data-label="H/P/E">-</td>
+      </tr>
     </tbody>
   </table>
- <!-- Back Button -->
-    <button type="button" onclick="goBack()" class="back-button">
-        <b>Back</b>
-    </button>
 
-    <script>
-        function goBack() 
-        {
-            window.location.href = "./index.html";
-        }
-    </script>
+  <!-- Back Button -->
+  <button type="button" onclick="goBack()" class="back-button">
+    <b>Back</b>
+  </button>
+
+  <script>
+    function goBack() {
+      window.location.href = "./index.html";
+    }
+  </script>
+
 </body>
 </html>
+
 
