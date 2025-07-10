@@ -21,24 +21,25 @@
     }
 
     header {
-            width: 100%;
-            /* background-color:  #FF9933; */
-            text-align: center;
-        }
-        header img {
-            max-width: 100%;
-            height: auto;
-        }
+      width: 100%;
+      text-align: center;
+    }
 
-.ekonkar {
-            width: 100%;
-            background-color:  #fcbf1e;
-            text-align: center;
-        }
-        .ekonkar-img {
-            max-width: 100%;
-            height: auto;
-        }
+    header img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .ekonkar {
+      width: 100%;
+      background-color: #fcbf1e;
+      text-align: center;
+    }
+
+    .ekonkar-img {
+      max-width: 100%;
+      height: auto;
+    }
 
     .inline-logo-text {
       display: flex;
@@ -151,9 +152,6 @@
       max-width: 100%;
     }
 
-   
-
-    /* Responsive styles */
     @media (max-width: 768px) {
       .main-header {
         padding: 0.5rem 1rem;
@@ -242,76 +240,75 @@
         max-width: 200px;
       }
 
- footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background-color: #FF9933;
-  border: 3px solid #FF9933;
-  color: black;
-  font-weight: bold;
-  font-size: 0.8rem;
-  text-align: center;
-  flex-wrap: wrap;
-    min-height: 60px;
-}
+      footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        background-color: #FF9933;
+        border: 3px solid #FF9933;
+        color: black;
+        font-weight: bold;
+        font-size: 0.8rem;
+        text-align: center;
+        flex-wrap: wrap;
+        min-height: 60px;
+      }
 
-footer div {
-  flex: 1 1 100%;
-  margin: 0.5rem 0;
-}
-    
-    footer img 
-    {
-      height: 60px;
-      width: auto;
-      vertical-align: middle;
+      footer div {
+        flex: 1 1 100%;
+        margin: 0.5rem 0;
+      }
+
+      footer img {
+        height: 60px;
+        width: auto;
+        vertical-align: middle;
+      }
     }
-
-  
   </style>
 </head>
 <body>
 <header>
-   
-        <img src="./pictures/00_Index/Header.jpg" alt="Header Image" width="1432" height=auto />
-    </header>
+  <img src="./pictures/00_Index/Header.jpg" alt="Header Image" width="1432" height="auto" />
+</header>
 
-  <section class="hero">
-    <div class="ekonkar-container">
-      <img src="./pictures/00_Index/IKONKAR.png" width="600" height=auto alt="Ek Onkar Symbol" class="ekonkar-img">
-    </div>
+<section class="hero">
+  <div class="ekonkar-container">
+    <img src="./pictures/00_Index/IKONKAR.png" width="600" height="auto" alt="Ek Onkar Symbol" class="ekonkar-img">
+  </div>
+  There is only one God
+</section>
 
-      There is only one God
+<section class="hero">
+  <h2>Preserving Heritage, Inspiring Future</h2>
+  <p>
+    A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
+  </p>
 
-  </section>
+  <a href="./01_AddRecord.html" class="cta-button" style="font-size: 30px;">Become a Member</a>
 
-  <section class="hero">
-    <h2>Preserving Heritage, Inspiring Future</h2>
-    <p>
-      A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
-    </p>
-    <a href="./01_AddRecord.html" class="cta-button" style="font-size: 3  0px;">Become a Member  </a>
+  <!-- NEW SCROLLING TEXT FOR CURRENT MONTH FESTIVALS -->
+  <marquee behavior="scroll" direction="left" scrollamount="10" style="color: #fcbf1e; font-size: 2rem; margin-top: 1rem;">
+   <b> July Festivals:</b> Guru Harkrishan Sahib Ji's Gurpurab – July 7 | Martyrdom of Guru Arjan Dev Ji – July 15
+  </marquee>
 
-    <div class="clipart-row">
-      <a href="./02_AboutSikhism.html">
-        <img src="./pictures/01_Sikhism/AboutSikhism.png" style="height: 100px; width: auto;" alt="About Sikhism" class="golden-temple">
-      </a>
-      <a href="./03_Gurudwaras in UAE.html">
-        <img src="./pictures/02_GurudwarasinUAE/GurudwarasinUAE.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
-      </a>
-            <a href="./04_workinprogress.html">
-        <img src="./pictures/03_SikhProfessionals/SikhProfessionals.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
-      </a>
-       </a>
-            <a href="./04_workinprogress.html">
-        <img src="./pictures/04_SikhMatrimonials/SikhMatrimonials.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
-      </a>   </div>
-  </section>
-
-
+  <div class="clipart-row">
+    <a href="./02_AboutSikhism.html">
+      <img src="./pictures/01_Sikhism/AboutSikhism.png" style="height: 100px; width: auto;" alt="About Sikhism" class="golden-temple">
+    </a>
+    <a href="./03_Gurudwaras in UAE.html">
+      <img src="./pictures/02_GurudwarasinUAE/GurudwarasinUAE.jpg" style="height: 100px; width: auto;" alt="Gurudwaras in UAE" class="golden-temple">
+    </a>
+    <a href="./04_workinprogress.html">
+      <img src="./pictures/03_SikhProfessionals/SikhProfessionals.jpg" style="height: 100px; width: auto;" alt="Sikh Professionals" class="golden-temple">
+    </a>
+    <a href="./04_workinprogress.html">
+      <img src="./pictures/04_SikhMatrimonials/SikhMatrimonials.jpg" style="height: 100px; width: auto;" alt="Sikh Matrimonials" class="golden-temple">
+    </a>
+  </div>
+</section>
 
 <footer style="
   display: flex;
@@ -326,23 +323,19 @@ footer div {
   font-size: 14px;
   white-space: nowrap;
 ">
-
   <div style="flex: 1; text-align: left;">
     <a href="./09_ContactUs.html" style="color: black; text-decoration: none; font-weight: bold; font-size: 16px;">
       Contact Us
     </a>
   </div>
-
   <div style="flex: 1; text-align: center;">
     <a href="./10_Feedback.html" style="color: black; text-decoration: none; font-weight: bold; font-size: 16px;">
       Feedback
     </a>
   </div>
-
   <div style="flex: 1; text-align: right; color: black; font-weight: bold; font-size: 12px;">
     &copy; 2025 Sikhs in UAE. All Rights Reserved.
   </div>
-
 </footer>
 
 </body>
