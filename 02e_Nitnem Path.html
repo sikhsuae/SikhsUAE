@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sikhs in UAE – PDF Downloads</title>
   <style>
     body {
-      background-color: #000000;
+      background-color: #000;
       color: #FF9933;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 40px;
@@ -24,34 +24,34 @@
       border: 2px solid #FF9933;
       padding: 14px;
       font-size: 18px;
-      background-color: #000000;
+      background-color: #000;
       color: #FF9933;
-      text-align: center; /* Center align by default */
-    }
-
-    /* Importance column: Justify only */
-    td:nth-child(3), th:nth-child(3) {
-      text-align: justify;
+      text-align: center; /* center all cells by default */
     }
 
     th {
       background-color: #FF9933;
-      color: #000000;
+      color: #000;
+      text-align: center;
+    }
+
+    /* Justify text in the Importance column */
+    td:nth-child(3), th:nth-child(3) {
+      text-align: justify;
     }
 
     .importance-text {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 1.6;
-      color: #FF9933;
       margin: 0;
       text-align: justify;
     }
 
-    /* Back button styling */
+    /* Back button */
     .back-button {
       width: 150px;
       height: 40px;
-      font-size: 24px;
+      font-size: 20px;
       background-color: #FFA500;
       color: black;
       margin: 40px auto 0 auto;
@@ -65,27 +65,16 @@
       background-color: #FF8C00;
     }
 
-    /* Responsive styling */
+    /* Responsive styles */
     @media (max-width: 768px) {
       body {
         padding: 20px 10px;
       }
 
       h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
+        font-size: 22px;
         text-align: center;
-      }
-
-      p {
-        font-size: 0.5px;
-        margin-bottom: 1px;
-      }
-
-      .importance-text {
-        font-size: 4px;
-        line-height: 1.4;
-        text-align: justify;
+        margin-bottom: 20px;
       }
 
       table, thead, tbody, th, td, tr {
@@ -105,12 +94,13 @@
       }
 
       td {
-        text-align: center;
-        padding: 8px 12px;
         font-size: 16px;
+        padding: 10px;
         position: relative;
+        text-align: center; /* center by default */
       }
 
+      /* Justify Importance column on mobile too */
       td:nth-child(3) {
         text-align: justify;
       }
@@ -121,13 +111,20 @@
         display: block;
         margin-bottom: 6px;
         color: #FFA500;
+        text-align: left;
+      }
+
+      .importance-text {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: justify;
       }
 
       .back-button {
+        width: 100%;
+        padding: 12px;
         font-size: 18px;
         height: auto;
-        padding: 10px;
-        width: 100%;
       }
     }
   </style>
@@ -166,7 +163,7 @@
         <td data-label="Path">Jaap Sahib</td>
         <td data-label="Relevance">
           <p class="importance-text">
-            Jaap Sahib's relevance lies in its role as a powerful morning prayer within Sikhism and its profound spiritual and moral guidance. It's one of the five daily Banis (hymns) prescribed for Sikhs, emphasizing God's attributes and offering a path to spiritual enlightenment and inner strength
+            Jaap Sahib's relevance lies in its role as a powerful morning prayer within Sikhism and its profound spiritual and moral guidance. It's one of the five daily Banis (hymns) prescribed for Sikhs, emphasizing God's attributes and offering a path to spiritual enlightenment and inner strength.
           </p>
         </td>
         <td data-label="Punjabi">-</td>
@@ -178,7 +175,7 @@
         <td data-label="Path">Tav-Prasad Savaiye</td>
         <td data-label="Relevance">
           <p class="importance-text">
-            Tav Prasad means with the grace of God. This composition vehemently condemns idolatry, pilgrimages, grave worship, yogi samadhis, and other ceremonial beliefs of Hinduism, Jainism, and Islam as being useless in achieving God is carried out in the absence of love for God and all his creation
+            Tav Prasad means with the grace of God. This composition vehemently condemns idolatry, pilgrimages, grave worship, yogi samadhis, and other ceremonial beliefs of Hinduism, Jainism, and Islam as being useless in achieving God is carried out in the absence of love for God and all his creation.
           </p>
         </td>
         <td data-label="Punjabi">-</td>
@@ -221,7 +218,7 @@
         <td data-label="Punjabi">-</td>
         <td data-label="Hindi">-</td>
         <td data-label="English">-</td>
-        <td data-label="H/P/E"><a href="./49_Content/Path/06d_ Rehraas Saahib_HPE.pdf" target="_blank">Rehraas Saahib-Hindi/Punjabi/English</a></td>
+        <td data-label="H/P/E"><a href="./49_Content/Path/06d_Rehraas_Saahib_HPE.pdf" target="_blank">Rehraas Saahib-Hindi/Punjabi/English</a></td>
       </tr>
       <tr>
         <td data-label="Timings">Night</td>
