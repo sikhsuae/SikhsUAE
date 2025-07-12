@@ -325,10 +325,17 @@
       .hero {
         padding: 1rem 0.5rem;
       }
+.hero-heading h2 {
+  margin-bottom: 0.1rem;
+}
 
+.hero-description p {
+  margin-top: 0;
+}
       .ekonkar-container {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.1rem;
+          margin-bottom: 0.1rem;
       }
 
       .ekonkar-img {
@@ -336,8 +343,11 @@
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+    margin-bottom: 0;
       }
-
+.ekonkar-caption p {
+  margin-top: 0.1rem;
+}
       .ekonkar-text {
         font-size: 3rem;
         text-align: center;
@@ -395,7 +405,7 @@
     }
 
     /* Fade Animation for Slideshow */
-    .fade {
+    /* .fade {
       animation-name: fade;
       animation-duration: 10s;
     }
@@ -403,7 +413,7 @@
     @keyframes fade {
       from {opacity: .4}
       to {opacity: 1}
-    }
+    } */
 
 
       footer {
@@ -514,10 +524,6 @@
           <img src="./pictures/00_Index/Gurbani_Quotes/111.jpg" alt="Worship Ceremony">
         </div>
 
-         <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/112.jpg" alt="Worship Ceremony">
-        </div>
-
       </div>
   </div>
 </section>
@@ -589,7 +595,7 @@
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1 }    
     slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
+    setTimeout(showSlides, 6000); // Change image every 3 seconds
   }
 </script>
 </body>
