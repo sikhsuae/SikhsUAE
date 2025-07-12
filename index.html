@@ -204,6 +204,27 @@
 }
 
     @media (max-width: 768px) {
+
+      .hero.flex-container {
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
+}
+
+.hero.flex-container .left-content,
+.right-slideshow {
+  flex: 1 1 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.right-slideshow img {
+  width: 100%;
+  max-height: none;
+}
+
       .main-header {
         padding: 0.5rem 1rem;
       }
