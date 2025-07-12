@@ -151,57 +151,6 @@
       border: 2px solid #fcbf1e;
       max-width: 100%;
     }
-.hero.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 0;
-}
-
-.hero.flex-container .left-content {
-  flex: 1 1 50%;
-  text-align: center;
-}
-
-.hero.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem 0;
-}
-
-.left-content div {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-.right-slideshow {
-  flex: 0 0 40%; /* Reduced from ~50% */
-  max-width: 600px;
-  background-color: #111;
-    border: none;
-  /* border: 2px solid #fcbf1e;
-  border-radius: 8px; */
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-.right-slideshow img {
-  width: 130%;
-  height: auto;
-  max-height: 500px; /* Optional: Limit height */
-  object-fit: contain;
-  border-radius: 2%;
-}
 
     @media (max-width: 768px) {
       .main-header {
@@ -271,8 +220,6 @@
         line-height: 1.4;
       }
 
-
-
       .cta-button {
         font-size: 1rem;
         padding: 10px 20px;
@@ -292,36 +239,6 @@
         width: 70%;
         max-width: 200px;
       }
-
-       /* Slideshow Section */
-    .slideshow-container {
-      max-width: 100%;
-      margin: auto;
-      position: relative;
-    }
-
-    .mySlides {
-      display: none;
-    }
-
-    /* Slideshow Image Styling */
-    .mySlides img {
-      width: 100%;
-      border: 3px solid #FFA500;
-      margin-right: 0.2cm;
-    }
-
-    /* Fade Animation for Slideshow */
-    .fade {
-      animation-name: fade;
-      animation-duration: 10s;
-    }
-
-    @keyframes fade {
-      from {opacity: .4}
-      to {opacity: 1}
-    }
-
 
       footer {
         display: flex;
@@ -357,95 +274,24 @@
   <img src="./pictures/00_Index/Header.jpg" alt="Header Image" width="1432" height="auto" />
 </header>
 
-
-<section class="hero flex-container">
-<div class="left-content">
+<section class="hero">
   <div class="ekonkar-container">
     <img src="./pictures/00_Index/IKONKAR.png" width="600" height="auto" alt="Ek Onkar Symbol" class="ekonkar-img">
   </div>
-
-  <div class="ekonkar-caption">
-    <p>There is only one God</p>
-  </div>
-
-  <div class="hero-heading">
-    <h2>Preserving Heritage, Inspiring Future</h2>
-  </div>
-
-  <div class="hero-description">
-    <p>
-      A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
-    </p>
-  </div>
-</div>
-
-  <div class="right-slideshow">
-  <!-- Slideshow Section -->
-      <div class="slideshow-container">
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/100.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/101.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/102.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/103.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/104.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/105.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/106.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/107.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/108.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/109.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/110.jpg" alt="Worship Ceremony">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/111.jpg" alt="Worship Ceremony">
-        </div>
-
-         <div class="mySlides fade">
-          <img src="./pictures/00_Index/Gurbani_Quotes/112.jpg" alt="Worship Ceremony">
-        </div>
-
-      </div>
-  </div>
+  There is only one God
 </section>
 
 <section class="hero">
+  <h2>Preserving Heritage, Inspiring Future</h2>
+  <p>
+    A digital space celebrating the vibrant history, contributions, and culture of the Sikh community in the United Arab Emirates.
+  </p>
 
-
-<a href="./01_AddRecord.html" class="cta-button" style="font-size: 30px; font-weight: bold; display: inline-block; line-height: 1;">
-  Become a Member<br>
-  <span style="font-size: 16px; font-weight: normal; line-height: 1; margin-top: -6px; display: inline-block;">(at no charge)</span>
+  <!-- <a href="./01_AddRecord.html" class="cta-button" style="font-size: 30px;">Become a Member (at no charge)</a> -->
+  <a href="./01_AddRecord.html" class="cta-button" style="font-size: 30px;">
+  Become a Member <span style="font-weight: normal;"><br>(at no charge)</span>
 </a>
+
   <!-- NEW SCROLLING TEXT FOR CURRENT MONTH FESTIVALS -->
   <marquee behavior="scroll" direction="left" scrollamount="8" style="color: #fcbf1e; font-size: 2rem; margin-top: 1rem;">
    <b> July Milestones:</b> Guru Harkrishan Sahib Ji's Gurpurab – July 7 | Martyrdom of Guru Arjan Dev Ji – July 15
@@ -494,20 +340,6 @@
     &copy; 2025 Sikhs in UAE. All Rights Reserved.
   </div>
 </footer>
-<script>
-  let slideIndex = 0;
-  showSlides();
 
-  function showSlides() {
-    const slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }    
-    slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-  }
-</script>
 </body>
 </html>
