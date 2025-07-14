@@ -344,35 +344,15 @@
         gender: gender
       };
 
- // 1. Send confirmation to user
-  emailjs.send("service_p8xn1qd", "template_tieidup", emailParams)
-    .then(response => {
-      console.log("✅ Email sent to user:", response.status, response.text);
-    })
-    .catch(error => {
-      console.error("❌ Failed to send email to user:", error);
-      document.getElementById("status").innerText = "Error sending email: " + error.message;
-    });
-
-  // 2. Send backup email to admin
-  const backupParams = {
-    email: "sikhsuae@gmail.com", // admin's email
-    name: name,
-    mobile: mobile,
-    age: age,
-    address: address,
-    gender: gender,
-    useremail: email // showing who filled the form
-  };
-
-  emailjs.send("service_p8xn1qd", "template_backupadmin", backupParams)
-    .then(response => {
-      console.log("✅ Backup email sent to admin:", response.status, response.text);
-    })
-    .catch(error => {
-      console.error("❌ Failed to send backup email to admin:", error);
-    });
-} 
+      emailjs.send("service_p8xn1qd", "template_tieidup", emailParams)
+        .then(response => {
+          console.log("✅ Email sent successfully:", response.status, response.text);
+        })
+        .catch(error => {
+          console.error("❌ Failed to send email:", error);
+          document.getElementById("status").innerText = "Error sending email: " + error.message;
+        });
+    }
   </script>
 
 </body>
