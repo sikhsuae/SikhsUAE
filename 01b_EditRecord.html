@@ -218,6 +218,16 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
+function formatDate(timestamp) {
+  if (!timestamp?.toDate) return '';
+  const date = timestamp.toDate();
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = date.toLocaleString('default', { month: 'short' }); // e.g., "Jul"
+  const year = String(date.getFullYear()).slice(-2); // e.g., "25"
+  return `${day}-${month}-${year}`;
+}
+
+
     function loadAllRecords() {
       const tbody = document.getElementById("recordsTableBody");
       tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">Loading records...</td></tr>';
@@ -240,7 +250,7 @@
                 <td>${data.Age || ''}</td>
                 <td>${data.Gender || ''}</td>
                 <td>${data.Address || ''}</td>
-                <td>${data.Date_created || ''}</td>
+              <td>${formatDate(data.Date_created)}</td>
                 <td>
                   <button class="edit-btn" onclick="editRecord('${data.Email}')">Edit</button>
                   <button class="delete-btn" onclick="deleteRecord('${data.Email}')">Delete</button>
