@@ -222,7 +222,7 @@
       const tbody = document.getElementById("recordsTableBody");
       tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">Loading records...</td></tr>';
 
-      db.collection("sikhdatabaseuae").get()
+      db.collection("sikhdatabaseuae").orderBy("Date_created", "desc").get()
         .then(querySnapshot => {
           if (querySnapshot.empty) {
             tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 10px; color: #FF9933;">No records found.</td></tr>';
@@ -391,6 +391,7 @@
     function goBack() {
       window.location.href = "./01_AddRecord.html";
     }
+
     window.onload = loadAllRecords;
   </script>
 </body>
