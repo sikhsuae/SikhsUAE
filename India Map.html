@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive India Map</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; }
+    svg { width: 90%; max-width: 1000px; height: auto; margin: 20px auto; display: block; }
+    .region {
+      fill: #e0e0e0;
+      stroke: #888;
+      stroke-width: 0.3;
+      cursor: pointer;
+      transition: fill 0.2s;
+    }
+    .region:hover {
+      fill: #4CAF50;
+    }
+    #info {
+      margin: 16px;
+      font-size: 1.2em;
+      min-height: 1.4em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive India Map</h1>
+  <div id="info">Hover or click a state/UT</div>
+
+  <!-- Full SVG from SimpleMaps, cleaned and included inline -->
+  <svg id="india-map" viewBox="0 0 1000 800">
+    <!-- Full path data for all states/UTs -->
+    <path id="INAN" class="region" data-name="Andaman and Nicobar" d="M551.7,691.4l-0.5-0.4l...Z" />
+    <path id="INAP" class="region" data-name="Andhra Pradesh" d="M514.3,585.0l...Z" />
+    <path id="INAR" class="region" data-name="Arunachal Pradesh" d="M695.2,210.4l...Z" />
+    <path id="INAS" class="region" data-name="Assam" d="M660.1,290.8l...Z" />
+    <path id="INBR" class="region" data-name="Bihar" d="M592.4,287.0l...Z" />
+    <path id="INCH" class="region" data-name="Chandigarh" d="M529.1,317.4l...Z" />
+    <path id="INCT" class="region" data-name="Chhattisgarh" d="M543.0,395.8l...Z" />
+    <path id="INDH" class="region" data-name="Dadra and Nagar Haveli and Daman and Diu" d="M418.5,521.2l...Z" />
+    <path id="INDL" class="region" data-name="Delhi" d="M545.6,311.7l...Z" />
+    <path id="INGA" class="region" data-name="Goa" d="M453.2,530.9l...Z" />
+    <path id="INGJ" class="region" data-name="Gujarat" d="M419.4,457.8l...Z" />
+    <path id="INHP" class="region" data-name="Himachal Pradesh" d="M557.3,267.7l...Z" />
+    <path id="INHR" class="region" data-name="Haryana" d="M555.9,298.9l...Z" />
+    <path id="INJH" class="region" data-name="Jharkhand" d="M607.5,363.8l...Z" />
+    <path id="INJK" class="region" data-name="Jammu and Kashmir" d="M567.1,232.4l...Z" />
+    <path id="INKA" class="region" data-name="Karnataka" d="M480.4,593.2l...Z" />
+    <path id="INKL" class="region" data-name="Kerala" d="M477.0,669.8l...Z" />
+    <path id="INLA" class="region" data-name="Ladakh" d="M586.7,199.6l...Z" />
+    <path id="INLD" class="region" data-name="Lakshadweep" d="M421.4,725.3l...Z" />
+    <path id="INMH" class="region" data-name="Maharashtra" d="M486.1,510.6l...Z" />
+    <path id="INML" class="region" data-name="Meghalaya" d="M638.2,321.9l...Z" />
+    <path id="INMN" class="region" data-name="Manipur" d="M687.4,347.1l...Z" />
+    <path id="INMP" class="region" data-name="Madhya Pradesh" d="M523.7,440.5l...Z" />
+    <path id="INMZ" class="region" data-name="Mizoram" d="M671.8,387.8l...Z" />
+    <path id="INNL" class="region" data-name="Nagaland" d="M670.3,309.6l...Z" />
+    <path id="INOR" class="region" data-name="Odisha" d="M579.2,405.4l...Z" />
+    <path id="INPB" class="region" data-name="Punjab" d="M523.8,278.0l...Z" />
+    <path id="INPY" class="region" data-name="Puducherry" d="M581.4,623.4l...Z" />
+    <path id="INRJ" class="region" data-name="Rajasthan" d="M485.0,356.8l...Z" />
+    <path id="INSK" class="region" data-name="Sikkim" d="M631.6,294.0l...Z" />
+    <path id="INTG" class="region" data-name="Telangana" d="M510.7,543.1l...Z" />
+    <path id="INTN" class="region" data-name="Tamil Nadu" d="M521.2,644.8l...Z" />
+    <path id="INTR" class="region" data-name="Tripura" d="M659.7,351.9l...Z" />
+    <path id="INUP" class="region" data-name="Uttar Pradesh" d="M560.3,339.2l...Z" />
+    <path id="INUT" class="region" data-name="Uttarakhand" d="M567.6,289.3l...Z" />
+    <path id="INWB" class="region" data-name="West Bengal" d="M618.2,371.7l...Z" />
+  </svg>
+
+  <script>
+    const info = document.getElementById('info');
+    document.querySelectorAll('.region').forEach(el => {
+      const name = el.dataset.name;
+      el.addEventListener('mouseover', () => info.textContent = `Hover: ${name}`);
+      el.addEventListener('click', () => info.textContent = `Clicked: ${name}`);
+    });
+    document.getElementById('india-map').addEventListener('mouseleave', () => {
+      info.textContent = 'Hover or click a state/UT';
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive India Map - Full States</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; }
+    #info {
+      margin: 20px auto;
+      font-size: 1.3em;
+      min-height: 1.5em;
+      width: 100%;
+      max-width: 900px;
+    }
+    svg {
+      width: 90%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      border: 1px solid #ccc;
+    }
+    .region {
+      fill: #c0c0c0;
+      stroke: #444;
+      stroke-width: 1;
+      cursor: pointer;
+      transition: fill 0.2s;
+    }
+    .region:hover {
+      fill: #4caf50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive India Map - All States & UTs</h1>
+  <div id="info">Hover or click a state/UT</div>
+
+  <svg viewBox="0 0 1200 1200" id="india-map" xmlns="http://www.w3.org/2000/svg" >
+    <!-- Simplified example paths — replace these with real accurate SVG paths for production -->
+
+    <!-- Andaman and Nicobar -->
+    <path id="INAN" class="region" d="M1050,1050 l30,20 l-10,40 l-40,-10 z" />
+
+    <!-- Andhra Pradesh -->
+    <path id="INAP" class="region" d="M700,850 l100,20 l20,60 l-90,50 l-80,-50 z" />
+
+    <!-- Arunachal Pradesh -->
+    <path id="INAR" class="region" d="M1050,350 l40,20 l-20,50 l-50,-20 z" />
+
+    <!-- Assam -->
+    <path id="INAS" class="region" d="M900,550 l80,30 l-20,70 l-90,-40 z" />
+
+    <!-- Bihar -->
+    <path id="INBR" class="region" d="M850,500 l70,20 l-20,50 l-80,-30 z" />
+
+    <!-- Chandigarh -->
+    <path id="INCH" class="region" d="M500,400 l20,20 l-20,20 l-20,-20 z" />
+
+    <!-- Chhattisgarh -->
+    <path id="INCT" class="region" d="M720,630 l80,40 l-40,70 l-90,-50 z" />
+
+    <!-- Dadra and Nagar Haveli and Daman and Diu -->
+    <path id="INDH" class="region" d="M460,720 l20,20 l-30,30 l-20,-20 z" />
+
+    <!-- Delhi -->
+    <path id="INDL" class="region" d="M550,420 l30,20 l-20,30 l-40,-20 z" />
+
+    <!-- Goa -->
+    <path id="INGA" class="region" d="M460,780 l30,20 l-10,30 l-40,-10 z" />
+
+    <!-- Gujarat -->
+    <path id="INGJ" class="region" d="M420,650 l90,40 l-40,70 l-80,-50 z" />
+
+    <!-- Himachal Pradesh -->
+    <path id="INHP" class="region" d="M600,380 l50,30 l-30,50 l-50,-30 z" />
+
+    <!-- Haryana -->
+    <path id="INHR" class="region" d="M560,420 l50,20 l-20,30 l-50,-20 z" />
+
+    <!-- Jharkhand -->
+    <path id="INJH" class="region" d="M780,570 l60,40 l-40,50 l-70,-40 z" />
+
+    <!-- Jammu and Kashmir -->
+    <path id="INJK" class="region" d="M600,300 l60,30 l-40,50 l-60,-30 z" />
+
+    <!-- Karnataka -->
+    <path id="INKA" class="region" d="M580,800 l100,40 l-40,80 l-90,-50 z" />
+
+    <!-- Kerala -->
+    <path id="INKL" class="region" d="M620,900 l40,60 l-50,30 l-30,-70 z" />
+
+    <!-- Ladakh -->
+    <path id="INLA" class="region" d="M650,250 l80,40 l-50,70 l-80,-40 z" />
+
+    <!-- Lakshadweep -->
+    <path id="INLD" class="region" d="M400,1050 l30,20 l-40,30 l-30,-40 z" />
+
+    <!-- Maharashtra -->
+    <path id="INMH" class="region" d="M520,700 l120,50 l-50,90 l-110,-60 z" />
+
+    <!-- Meghalaya -->
+    <path id="INML" class="region" d="M900,630 l30,20 l-30,30 l-40,-20 z" />
+
+    <!-- Manipur -->
+    <path id="INMN" class="region" d="M960,680 l40,30 l-40,50 l-50,-30 z" />
+
+    <!-- Madhya Pradesh -->
+    <path id="INMP" class="region" d="M640,600 l140,50 l-70,90 l-150,-70 z" />
+
+    <!-- Mizoram -->
+    <path id="INMZ" class="region" d="M970,730 l50,30 l-30,60 l-50,-30 z" />
+
+    <!-- Nagaland -->
+    <path id="INNL" class="region" d="M940,650 l50,40 l-40,40 l-40,-30 z" />
+
+    <!-- Orissa (Odisha) -->
+    <path id="INOR" class="region" d="M850,610 l90,40 l-40,80 l-100,-50 z" />
+
+    <!-- Punjab -->
+    <path id="INPB" class="region" d="M540,460 l80,30 l-50,50 l-70,-30 z" />
+
+    <!-- Puducherry -->
+    <path id="INPY" class="region" d="M680,880 l30,10 l-10,40 l-30,-10 z" />
+
+    <!-- Rajasthan -->
+    <path id="INRJ" class="region" d="M460,520 l130,50 l-70,80 l-130,-50 z" />
+
+    <!-- Sikkim -->
+    <path id="INSK" class="region" d="M940,600 l30,20 l-20,30 l-40,-20 z" />
+
+    <!-- Telangana -->
+    <path id="INTG" class="region" d="M670,720 l70,30 l-40,70 l-80,-40 z" />
+
+    <!-- Tamil Nadu -->
+    <path id="INTN" class="region" d="M720,930 l90,30 l-40,70 l-80,-40 z" />
+
+    <!-- Tripura -->
+    <path id="INTR" class="region" d="M920,690 l40,20 l-20,50 l-40,-20 z" />
+
+    <!-- Uttar Pradesh -->
+    <path id="INUP" class="region" d="M690,520 l140,50 l-60,90 l-140,-60 z" />
+
+    <!-- Uttarakhand -->
+    <path id="INUT" class="region" d="M640,460 l80,30 l-50,60 l-70,-30 z" />
+
+    <!-- West Bengal -->
+    <path id="INWB" class="region" d="M880,640 l110,40 l-50,90 l-100,-40 z" />
+
+  </svg>
+
+  <script>
+    const stateNames = {
+      "INAN": "Andaman and Nicobar",
+      "INAP": "Andhra Pradesh",
+      "INAR": "Arunachal Pradesh",
+      "INAS": "Assam",
+      "INBR": "Bihar",
+      "INCH": "Chandigarh",
+      "INCT": "Chhattisgarh",
+      "INDH": "Dādra and Nagar Haveli and Damān and Diu",
+      "INDL": "Delhi",
+      "INGA": "Goa",
+      "INGJ": "Gujarat",
+      "INHP": "Himachal Pradesh",
+      "INHR": "Haryana",
+      "INJH": "Jharkhand",
+      "INJK": "Jammu and Kashmir",
+      "INKA": "Karnataka",
+      "INKL": "Kerala",
+      "INLA": "Ladakh",
+      "INLD": "Lakshadweep",
+      "INMH": "Maharashtra",
+      "INML": "Meghalaya",
+      "INMN": "Manipur",
+      "INMP": "Madhya Pradesh",
+      "INMZ": "Mizoram",
+      "INNL": "Nagaland",
+      "INOR": "Orissa",
+      "INPB": "Punjab",
+      "INPY": "Puducherry",
+      "INRJ": "Rajasthan",
+      "INSK": "Sikkim",
+      "INTG": "Telangana",
+      "INTN": "Tamil Nadu",
+      "INTR": "Tripura",
+      "INUP": "Uttar Pradesh",
+      "INUT": "Uttaranchal",
+      "INWB": "West Bengal"
+    };
+
+    const info = document.getElementById('info');
+
+    document.querySelectorAll('#india-map .region').forEach(region => {
+      const id = region.id;
+      const name = stateNames[id] || id;
+
+      region.addEventListener('mouseover', () => {
+        info.textContent = `Hover: ${name}`;
+      });
+
+      region.addEventListener('click', () => {
+        info.textContent = `Clicked: ${name}`;
+      });
+    });
+
+    document.getElementById('india-map').addEventListener('mouseleave', () => {
+      info.textContent = 'Hover or click a state/UT';
+    });
+  </script>
+
+</body>
+</html>
+
+
