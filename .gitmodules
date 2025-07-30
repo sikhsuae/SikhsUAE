@@ -1,0 +1,3 @@
+[submodule "SikhsUAE"]
+    path = SikhsUAE
+    url = https://github.com/sikhsuae/SikhsUAE.git
